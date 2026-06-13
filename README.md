@@ -1,0 +1,5771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arisha Saleem — Executive Virtual Assistant Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap');
+
+:root {
+  --primary: #6A0506;
+  --accent: #AE0102;
+  --dark: #1F2022;
+  --light: #DAC4B0;
+  --secondary: #A28069;
+  --dark-accent: #654E3C;
+  --glass-bg: rgba(31, 32, 34, 0.75);
+  --glass-border: rgba(218, 196, 176, 0.15);
+  --glow-red: rgba(174, 1, 2, 0.15);
+  --glow-gold: rgba(162, 128, 105, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0b;
+  color: var(--light);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0b; }
+::-webkit-scrollbar-thumb { background: var(--dark-accent); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--secondary); }
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.9); }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(174,1,2,0.1); }
+  50% { box-shadow: 0 0 40px rgba(174,1,2,0.25); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* ========== STICKY NAV ========== */
+.sticky-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(218, 196, 176, 0.08);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  transition: all 0.3s;
+}
+
+.sticky-nav.scrolled {
+  background: rgba(10, 10, 11, 0.95);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: 1px;
+}
+
+.nav-brand span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--light);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(174,1,2,0.3);
+}
+
+/* ========== SLIDE BASE ========== */
+.slide {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 60px 60px;
+}
+
+.slide-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-header {
+  margin-bottom: 40px;
+}
+
+.slide-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slide-label::before {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.slide-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.slide-subtitle {
+  font-size: 16px;
+  color: var(--secondary);
+  margin-top: 12px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.brand-mark {
+  position: absolute;
+  top: 80px; right: 60px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(218,196,176,0.15);
+}
+
+.slide-number {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  font-size: 13px;
+  color: rgba(218,196,176,0.2);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* ========== GLASS PANEL ========== */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(31,32,34,0.6) 0%, rgba(26,21,21,0.5) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+/* ========== HERO SECTION ========== */
+.slide-hero {
+  background: linear-gradient(135deg, #0f0505 0%, #1a0a0a 30%, #1F2022 70%, #0a0a0b 100%);
+  position: relative;
+  padding-top: 120px;
+}
+
+.hero-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(174,1,2,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(106,5,6,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(162,128,105,0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  flex: 1;
+}
+
+.hero-left {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(174,1,2,0.12);
+  border: 1px solid rgba(174,1,2,0.25);
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+  width: fit-content;
+}
+
+.hero-tag-dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+}
+
+.hero-title .accent {
+  background: linear-gradient(135deg, var(--light) 0%, var(--secondary) 50%, var(--dark-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--secondary);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.hero-service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.hero-service-tag {
+  background: rgba(218, 196, 176, 0.06);
+  border: 1px solid rgba(218, 196, 176, 0.12);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--light);
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+}
+
+.hero-service-tag:hover {
+  background: rgba(174,1,2,0.15);
+  border-color: rgba(174,1,2,0.3);
+  transform: translateY(-2px);
+}
+
+.hero-cta-row {
+  display: flex;
+  gap: 16px;
+}
+
+.hero-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #fff;
+  padding: 16px 36px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 10px 40px rgba(174,1,2,0.25);
+}
+
+.hero-cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(174,1,2,0.4);
+}
+
+.hero-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--light);
+  padding: 16px 36px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(218, 196, 176, 0.25);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.hero-cta-secondary:hover {
+  background: rgba(218, 196, 176, 0.08);
+  border-color: rgba(218, 196, 176, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Hero Dashboards */
+.hero-dashboards {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+}
+
+.dash-card {
+  position: absolute;
+  border-radius: 20px;
+  background: rgba(31, 32, 34, 0.9);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(218, 196, 176, 0.12);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dash-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 35px 100px rgba(0,0,0,0.6), 0 0 40px rgba(174,1,2,0.1);
+  border-color: rgba(174,1,2,0.25);
+}
+
+.dash-card-1 {
+  width: 360px; height: 220px;
+  top: 0; right: 40px;
+  transform: perspective(1200px) rotateY(-12deg) rotateX(6deg);
+  z-index: 3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.dash-card-2 {
+  width: 320px; height: 200px;
+  top: 200px; right: 220px;
+  transform: perspective(1200px) rotateY(8deg) rotateX(-4deg);
+  z-index: 2;
+  animation: float 6s ease-in-out infinite 1.5s;
+}
+
+.dash-card-3 {
+  width: 300px; height: 180px;
+  top: 380px; right: 80px;
+  transform: perspective(1200px) rotateY(-8deg) rotateX(10deg);
+  z-index: 1;
+  animation: float 6s ease-in-out infinite 3s;
+}
+
+.dash-card-4 {
+  width: 200px; height: 100px;
+  top: 60px; right: 420px;
+  z-index: 4;
+  animation: float 5s ease-in-out infinite 0.5s;
+}
+
+.dash-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(218,196,176,0.08);
+}
+
+.dash-dot { width: 8px; height: 8px; border-radius: 50%; }
+.dash-dot-red { background: #ff5f57; }
+.dash-dot-yellow { background: #febc2e; }
+.dash-dot-green { background: #28c840; }
+
+.dash-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-left: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.dash-body { padding: 18px; }
+
+.dash-kpi-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.dash-kpi-mini {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(106,5,6,0.2), rgba(174,1,2,0.1));
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+  border: 1px solid rgba(174,1,2,0.1);
+}
+
+.dash-kpi-mini .val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.dash-kpi-mini .lbl {
+  font-size: 9px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.dash-chart-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 60px;
+  padding: 0 4px;
+}
+
+.dash-bar {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--accent), var(--primary));
+  opacity: 0.85;
+  transition: opacity 0.3s;
+  position: relative;
+}
+
+.dash-bar:hover { opacity: 1; }
+
+.dash-inbox-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(218,196,176,0.05);
+}
+
+.dash-avatar {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary), var(--dark-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.dash-inbox-text { flex: 1; }
+
+.dash-inbox-text .line1 {
+  height: 7px;
+  width: 75%;
+  background: rgba(218,196,176,0.25);
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.dash-inbox-text .line2 {
+  height: 5px;
+  width: 55%;
+  background: rgba(218,196,176,0.12);
+  border-radius: 3px;
+}
+
+.dash-pipeline {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.dash-pipe-stage {
+  flex: 1;
+  height: 10px;
+  border-radius: 5px;
+  background: rgba(218,196,176,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.dash-pipe-stage.fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  border-radius: 5px;
+  animation: shimmer 2s infinite;
+  background-size: 200% 100%;
+}
+
+.dash-pipe-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 9px;
+  color: var(--secondary);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Floating KPIs */
+.float-kpi {
+  position: absolute;
+  background: rgba(31, 32, 34, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(218, 196, 176, 0.15);
+  border-radius: 16px;
+  padding: 16px 22px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+  z-index: 20;
+  transition: all 0.3s;
+}
+
+.float-kpi:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: rgba(174,1,2,0.3);
+}
+
+.float-kpi-1 { top: 100px; left: 40px; animation: float 5s ease-in-out infinite; }
+.float-kpi-2 { bottom: 160px; left: 80px; animation: float 5s ease-in-out infinite 1.2s; }
+.float-kpi-3 { top: 180px; left: 300px; animation: float 5s ease-in-out infinite 2.4s; }
+
+.float-kpi .num {
+  font-size: 26px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.float-kpi .lbl {
+  font-size: 10px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* ========== EXECUTIVE SUMMARY ========== */
+.slide-summary {
+  background: linear-gradient(180deg, #0a0a0b 0%, #1a1010 50%, #0f0f10 100%);
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.kpi-card {
+  background: linear-gradient(145deg, rgba(31,32,34,0.9) 0%, rgba(26,21,21,0.8) 100%);
+  border: 1px solid rgba(218,196,176,0.1);
+  border-radius: 24px;
+  padding: 36px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--primary), var(--dark-accent));
+}
+
+.kpi-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: 50%;
+  transform: translateX(-50%);
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(174,1,2,0.1) 0%, transparent 70%);
+  filter: blur(30px);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.kpi-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(174,1,2,0.25);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4), 0 0 30px rgba(174,1,2,0.08);
+}
+
+.kpi-card:hover::after { opacity: 1; }
+
+.kpi-number {
+  font-size: 44px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.kpi-number span {
+  font-size: 24px;
+  color: var(--accent);
+}
+
+.kpi-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.kpi-sub {
+  font-size: 11px;
+  color: rgba(218,196,176,0.4);
+  margin-top: 10px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+}
+
+/* Dashboard Preview */
+.dash-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  flex: 1;
+}
+
+.dash-preview-panel {
+  background: rgba(31,32,34,0.5);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dash-preview-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash-preview-badge {
+  font-size: 10px;
+  padding: 5px 12px;
+  background: rgba(174,1,2,0.15);
+  color: var(--accent);
+  border-radius: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Mini Chart */
+.mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 100px;
+  margin-bottom: 16px;
+}
+
+.mini-bar {
+  flex: 1;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, var(--accent), var(--primary));
+  opacity: 0.75;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.mini-bar:hover {
+  opacity: 1;
+  transform: scaleY(1.05);
+}
+
+.mini-bar::after {
+  content: attr(data-val);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--light);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.mini-bar:hover::after { opacity: 1; }
+
+/* Progress Rings */
+.progress-ring-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+
+.progress-ring-wrap {
+  text-align: center;
+}
+
+.progress-ring {
+  position: relative;
+  width: 110px; height: 110px;
+}
+
+.progress-ring svg {
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 0 8px rgba(174,1,2,0.2));
+}
+
+.progress-ring-bg {
+  fill: none;
+  stroke: rgba(218,196,176,0.08);
+  stroke-width: 7;
+}
+
+.progress-ring-fill {
+  fill: none;
+  stroke: url(#ringGradient);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 314.16;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.progress-ring-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.progress-ring-label {
+  font-size: 11px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(218,196,176,0.03);
+  border-radius: 12px;
+  border-left: 3px solid var(--accent);
+  transition: all 0.3s;
+}
+
+.task-item:hover {
+  background: rgba(218,196,176,0.06);
+  transform: translateX(4px);
+}
+
+.task-check {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  background: rgba(174,1,2,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.task-text {
+  font-size: 13px;
+  color: var(--light);
+  font-weight: 600;
+  flex: 1;
+}
+
+.task-tag {
+  font-size: 10px;
+  padding: 4px 10px;
+  background: rgba(106,5,6,0.2);
+  color: var(--accent);
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ========== SERVICES ECOSYSTEM ========== */
+.slide-services {
+  background: linear-gradient(135deg, #0a0a0b 0%, #1a0a0a 40%, #0f0f10 100%);
+}
+
+.ecosystem-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 40px 0;
+}
+
+.eco-center {
+  position: absolute;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(106,5,6,0.3) 0%, rgba(31,32,34,0.9) 100%);
+  border: 2px solid rgba(174,1,2,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 0 100px rgba(174,1,2,0.2), inset 0 0 60px rgba(174,1,2,0.05);
+  animation: glow 4s ease-in-out infinite;
+}
+
+.eco-center-inner {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(174,1,2,0.2) 0%, rgba(31,32,34,0.95) 100%);
+  border: 1px solid rgba(218,196,176,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.eco-center-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+.eco-center-sub {
+  font-size: 11px;
+  color: var(--secondary);
+  margin-top: 6px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.eco-node {
+  position: absolute;
+  width: 160px;
+  background: rgba(31,32,34,0.95);
+  border: 1px solid rgba(218,196,176,0.12);
+  border-radius: 18px;
+  padding: 20px 14px;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  z-index: 5;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.eco-node:hover {
+  border-color: rgba(174,1,2,0.5);
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(174,1,2,0.1);
+  z-index: 20;
+}
+
+.eco-node:hover .eco-node-desc {
+  opacity: 1;
+  max-height: 100px;
+  margin-top: 10px;
+}
+
+.eco-node-icon {
+  width: 44px; height: 44px;
+  margin: 0 auto 10px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(174,1,2,0.2), rgba(106,5,6,0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 4px 15px rgba(174,1,2,0.15);
+}
+
+.eco-node-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--light);
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+.eco-node-desc {
+  font-size: 10px;
+  color: var(--secondary);
+  line-height: 1.5;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+/* Node positions - adjusted for 10 nodes */
+.node-1 { top: 60px; left: 160px; }
+.node-2 { top: 60px; right: 160px; }
+.node-3 { top: 240px; left: 60px; }
+.node-4 { top: 240px; right: 60px; }
+.node-5 { bottom: 100px; left: 180px; }
+.node-6 { bottom: 100px; right: 180px; }
+.node-7 { top: 50%; left: 50px; transform: translateY(-50%); }
+.node-8 { top: 50%; right: 50px; transform: translateY(-50%); }
+.node-9 { bottom: 280px; left: 100px; }
+.node-10 { bottom: 280px; right: 100px; }
+
+.eco-connector {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  border: 1px solid rgba(218,196,176,0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.eco-connector-2 {
+  width: 450px; height: 450px;
+  border-color: rgba(174,1,2,0.08);
+}
+
+/* ========== LEAD GENERATION CASE STUDY ========== */
+.slide-lead {
+  background: linear-gradient(180deg, #0a0a0b 0%, #1a0a0a 100%);
+}
+
+.case-study-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 30px;
+  flex: 1;
+}
+
+.case-panel {
+  background: rgba(31,32,34,0.6);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s;
+}
+
+.case-panel:hover {
+  border-color: rgba(174,1,2,0.15);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.case-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.case-panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.case-panel-badge {
+  font-size: 10px;
+  padding: 5px 14px;
+  background: rgba(174,1,2,0.15);
+  color: var(--accent);
+  border-radius: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Case Study Story */
+.case-story {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.case-story-block {
+  background: rgba(10,10,11,0.5);
+  border-radius: 14px;
+  padding: 18px;
+  border-left: 3px solid var(--accent);
+}
+
+.case-story-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.case-story-text {
+  font-size: 12px;
+  color: var(--secondary);
+  line-height: 1.6;
+}
+
+/* Pipeline */
+.pipeline-stages {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.pipe-stage {
+  flex: 1;
+  text-align: center;
+}
+
+.pipe-stage-bar {
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(174,1,2,0.3), rgba(106,5,6,0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(174,1,2,0.15);
+}
+
+.pipe-stage-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 3s infinite;
+  background-size: 200% 100%;
+}
+
+.pipe-stage-label {
+  font-size: 10px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+/* Lead Database Table */
+.lead-table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  background: rgba(10,10,11,0.5);
+}
+
+.lead-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.lead-table th {
+  text-align: left;
+  font-size: 9px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(218,196,176,0.1);
+  font-weight: 700;
+  background: rgba(106,5,6,0.15);
+}
+
+.lead-table td {
+  padding: 12px 14px;
+  color: var(--light);
+  border-bottom: 1px solid rgba(218,196,176,0.05);
+  font-weight: 500;
+}
+
+.lead-table tr:hover td {
+  background: rgba(218,196,176,0.03);
+}
+
+.contact-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary), var(--dark-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.status-qualified {
+  background: rgba(40, 200, 64, 0.15);
+  color: #28c840;
+}
+
+.status-new {
+  background: rgba(174, 1, 2, 0.15);
+  color: var(--accent);
+}
+
+.status-contacted {
+  background: rgba(254, 188, 46, 0.15);
+  color: #febc2e;
+}
+
+.status-nurturing {
+  background: rgba(100, 149, 237, 0.15);
+  color: #6495ed;
+}
+
+/* KPI Row */
+.case-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.case-kpi-mini {
+  text-align: center;
+  padding: 18px;
+  background: rgba(174,1,2,0.06);
+  border-radius: 14px;
+  border: 1px solid rgba(174,1,2,0.1);
+}
+
+.case-kpi-mini .val {
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.case-kpi-mini .lbl {
+  font-size: 10px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* Spreadsheet Mock */
+.sheet-mock {
+  background: rgba(10,10,11,0.7);
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: 11px;
+  border: 1px solid rgba(218,196,176,0.06);
+}
+
+.sheet-row {
+  display: flex;
+  border-bottom: 1px solid rgba(218,196,176,0.05);
+}
+
+.sheet-row.header {
+  background: rgba(106,5,6,0.2);
+}
+
+.sheet-cell {
+  flex: 1;
+  padding: 10px 12px;
+  color: var(--light);
+  border-right: 1px solid rgba(218,196,176,0.05);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sheet-cell:first-child {
+  flex: 0.3;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.sheet-cell:last-child { border-right: none; }
+
+/* ========== EMAIL MANAGEMENT ========== */
+.slide-email {
+  background: linear-gradient(135deg, #0f0f10 0%, #151a1a 50%, #0a0a0b 100%);
+}
+
+.email-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  flex: 1;
+}
+
+.email-sidebar {
+  background: rgba(31,32,34,0.6);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(15px);
+  height: fit-content;
+}
+
+.email-sidebar-header {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.email-folder {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+.email-folder:hover, .email-folder.active {
+  background: rgba(174,1,2,0.1);
+  color: var(--light);
+}
+
+.email-folder-count {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 3px 10px;
+  background: rgba(174,1,2,0.2);
+  color: var(--accent);
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.email-labels-list {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(218,196,176,0.08);
+}
+
+.email-label-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  font-size: 12px;
+  color: var(--secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 8px;
+}
+
+.email-label-item:hover {
+  background: rgba(218,196,176,0.04);
+  color: var(--light);
+}
+
+.email-label-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+
+.email-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.email-list-panel {
+  flex: 1;
+  background: rgba(31,32,34,0.6);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+}
+
+.email-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  background: rgba(218,196,176,0.03);
+  border-left: 3px solid transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.email-item:hover {
+  background: rgba(218,196,176,0.06);
+  transform: translateX(4px);
+}
+
+.email-item.priority {
+  border-left-color: var(--accent);
+  background: rgba(174,1,2,0.05);
+}
+
+.email-item.read { opacity: 0.65; }
+
+.email-star {
+  color: #febc2e;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.email-star:hover { transform: scale(1.2); }
+
+.email-sender-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary), var(--dark-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.email-meta { flex: 1; min-width: 0; }
+
+.email-from {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.email-subject {
+  font-size: 12px;
+  color: var(--secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.email-labels {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.email-label {
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.label-urgent {
+  background: rgba(174,1,2,0.15);
+  color: var(--accent);
+}
+
+.label-client {
+  background: rgba(40, 200, 64, 0.15);
+  color: #28c840;
+}
+
+.label-follow {
+  background: rgba(254, 188, 46, 0.15);
+  color: #febc2e;
+}
+
+.label-internal {
+  background: rgba(218, 196, 176, 0.1);
+  color: var(--light);
+}
+
+.email-time {
+  font-size: 11px;
+  color: var(--secondary);
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+/* Before/After */
+.before-after-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.before-after-card {
+  background: rgba(10,10,11,0.5);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(218,196,176,0.06);
+}
+
+.before-after-card.after {
+  border-color: rgba(174,1,2,0.2);
+  background: rgba(174,1,2,0.03);
+}
+
+.before-after-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.before-after-label.before-label { color: var(--secondary); }
+.before-after-label.after-label { color: var(--accent); }
+
+.before-after-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ba-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--secondary);
+}
+
+.ba-item::before {
+  content: '\2717';
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.before-after-card.after .ba-item::before {
+  content: '\2713';
+  color: #28c840;
+}
+
+.before-after-card.after .ba-item {
+  color: var(--light);
+  font-weight: 600;
+}
+
+/* Calendar Strip */
+.email-calendar {
+  height: 160px;
+  background: rgba(31,32,34,0.6);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 20px 24px;
+  backdrop-filter: blur(15px);
+}
+
+.cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cal-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cal-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.cal-nav-btn {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: rgba(218,196,176,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.cal-nav-btn:hover {
+  background: rgba(174,1,2,0.15);
+  color: var(--accent);
+}
+
+.cal-days {
+  display: flex;
+  gap: 10px;
+}
+
+.cal-day {
+  flex: 1;
+  text-align: center;
+  padding: 12px 6px;
+  border-radius: 12px;
+  background: rgba(218,196,176,0.03);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.cal-day:hover {
+  background: rgba(218,196,176,0.06);
+}
+
+.cal-day.active {
+  background: rgba(174,1,2,0.15);
+  border: 1px solid rgba(174,1,2,0.3);
+  color: #fff;
+}
+
+.cal-day.has-meeting {
+  background: rgba(162,128,105,0.1);
+  border: 1px solid rgba(162,128,105,0.2);
+}
+
+.cal-day-name {
+  font-size: 10px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.cal-day-num {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.cal-day-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin: 6px auto 0;
+}
+
+.cal-day.has-meeting .cal-day-dot {
+  background: var(--secondary);
+}
+
+/* ========== SOCIAL MEDIA ========== */
+.slide-social {
+  background: linear-gradient(180deg, #0a0a0b 0%, #1a1010 50%, #0f0f10 100%);
+}
+
+.social-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  flex: 1;
+}
+
+.social-panel {
+  background: rgba(31,32,34,0.6);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s;
+}
+
+.social-panel:hover {
+  border-color: rgba(174,1,2,0.12);
+}
+
+.social-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.social-panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Content Calendar */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.cal-grid-day {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: rgba(218,196,176,0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--secondary);
+  position: relative;
+  font-weight: 600;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.cal-grid-day:hover {
+  background: rgba(218,196,176,0.06);
+  transform: scale(1.1);
+}
+
+.cal-grid-day.has-post {
+  background: rgba(174,1,2,0.1);
+  border: 1px solid rgba(174,1,2,0.2);
+  color: #fff;
+  font-weight: 700;
+}
+
+.cal-grid-day.today {
+  background: rgba(174,1,2,0.2);
+  border: 2px solid var(--accent);
+  color: #fff;
+  font-weight: 800;
+}
+
+.post-indicator {
+  position: absolute;
+  bottom: 6px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Analytics Chart */
+.analytics-chart {
+  height: 140px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 0 4px;
+}
+
+.analytics-bar {
+  flex: 1;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, var(--accent), var(--primary));
+  position: relative;
+  opacity: 0.85;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.analytics-bar:hover {
+  opacity: 1;
+  transform: scaleY(1.05);
+}
+
+.analytics-bar::after {
+  content: attr(data-val);
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--light);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.analytics-bar:hover::after { opacity: 1; }
+
+/* Post Previews */
+.post-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.post-card {
+  background: rgba(10,10,11,0.6);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(218,196,176,0.06);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  border-color: rgba(174,1,2,0.15);
+}
+
+.post-image {
+  height: 100px;
+  background: linear-gradient(135deg, rgba(106,5,6,0.3), rgba(162,128,105,0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.post-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(10,10,11,0.8));
+}
+
+.post-info { padding: 14px; }
+
+.post-platform {
+  font-size: 10px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.post-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--light);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.post-stats {
+  display: flex;
+  gap: 14px;
+}
+
+.post-stat {
+  font-size: 11px;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+
+/* Content Pillars */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pillar-card {
+  background: rgba(10,10,11,0.5);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  border: 1px solid rgba(218,196,176,0.06);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.pillar-card:hover {
+  border-color: rgba(174,1,2,0.2);
+  transform: translateY(-4px);
+  background: rgba(174,1,2,0.05);
+}
+
+.pillar-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.pillar-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: 0.5px;
+}
+
+/* Platform Bars */
+.platform-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.platform-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.platform-name {
+  width: 90px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: 0.5px;
+}
+
+.platform-track {
+  flex: 1;
+  height: 10px;
+  background: rgba(218,196,176,0.06);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.platform-fill {
+  height: 100%;
+  border-radius: 5px;
+  position: relative;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.platform-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer 2s infinite;
+  background-size: 200% 100%;
+}
+
+.platform-value {
+  width: 50px;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* ========== CREATIVE DESIGN SUPPORT ========== */
+.slide-design {
+  background: linear-gradient(135deg, #0f0f10 0%, #1a1515 50%, #0a0a0b 100%);
+}
+
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.design-card {
+  background: rgba(31,32,34,0.7);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.design-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(174,1,2,0.08);
+  border-color: rgba(174,1,2,0.2);
+}
+
+.design-preview {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.design-preview-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(106,5,6,0.2), rgba(162,128,105,0.15));
+}
+
+.design-preview-content {
+  position: relative;
+  z-index: 2;
+  width: 85%;
+  height: 75%;
+  background: rgba(10,10,11,0.6);
+  border-radius: 10px;
+  border: 1px solid rgba(218,196,176,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+}
+
+/* Carousel Preview */
+.carousel-preview {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.carousel-slide {
+  width: 30px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(174,1,2,0.3), rgba(106,5,6,0.4));
+  border-radius: 4px;
+  border: 1px solid rgba(218,196,176,0.15);
+}
+
+.carousel-slide.active {
+  width: 40px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  box-shadow: 0 4px 15px rgba(174,1,2,0.3);
+}
+
+/* IG Post Preview */
+.ig-post-preview {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(174,1,2,0.2), rgba(162,128,105,0.2));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: 2px solid rgba(218,196,176,0.15);
+}
+
+/* Flyer Preview */
+.flyer-preview {
+  width: 50px;
+  height: 70px;
+  background: linear-gradient(180deg, rgba(174,1,2,0.3), rgba(106,5,6,0.4));
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid rgba(218,196,176,0.2);
+}
+
+.flyer-line {
+  height: 3px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+  width: 80%;
+}
+
+/* Banner Preview */
+.banner-preview {
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(90deg, rgba(174,1,2,0.3), rgba(106,5,6,0.4), rgba(162,128,105,0.3));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 1px;
+  border: 1px solid rgba(218,196,176,0.2);
+}
+
+/* Presentation Preview */
+.ppt-preview {
+  width: 80px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(31,32,34,0.9), rgba(106,5,6,0.3));
+  border-radius: 6px;
+  border: 1px solid rgba(218,196,176,0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 4px;
+}
+
+.ppt-line {
+  height: 4px;
+  background: rgba(218,196,176,0.2);
+  border-radius: 2px;
+}
+
+/* PDF Preview */
+.pdf-preview {
+  width: 55px;
+  height: 70px;
+  background: linear-gradient(180deg, rgba(174,1,2,0.25), rgba(106,5,6,0.35));
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(218,196,176,0.2);
+  position: relative;
+}
+
+.pdf-preview::after {
+  content: 'PDF';
+  position: absolute;
+  bottom: 6px;
+  font-size: 8px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1px;
+}
+
+/* Newsletter Preview */
+.newsletter-preview {
+  width: 90%;
+  height: 80%;
+  background: rgba(10,10,11,0.7);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 6px;
+  border: 1px solid rgba(218,196,176,0.1);
+}
+
+.news-header {
+  height: 20px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.news-line {
+  height: 4px;
+  background: rgba(218,196,176,0.15);
+  border-radius: 2px;
+}
+
+/* Moodboard Preview */
+.moodboard-preview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  width: 70px;
+  height: 70px;
+}
+
+.mood-swatch {
+  border-radius: 6px;
+  border: 1px solid rgba(218,196,176,0.2);
+}
+
+.design-info {
+  padding: 20px;
+}
+
+.design-category {
+  font-size: 10px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.design-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.design-desc {
+  font-size: 12px;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+/* Design Capabilities */
+.design-caps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.design-cap-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(31,32,34,0.5);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 14px;
+  transition: all 0.3s;
+}
+
+.design-cap-item:hover {
+  background: rgba(174,1,2,0.05);
+  border-color: rgba(174,1,2,0.15);
+  transform: translateX(4px);
+}
+
+.design-cap-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(174,1,2,0.15), rgba(106,5,6,0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.design-cap-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--light);
+}
+
+/* Before/After Design */
+.design-ba {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.design-ba-card {
+  background: rgba(31,32,34,0.6);
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid rgba(218,196,176,0.08);
+}
+
+.design-ba-card.after {
+  border-color: rgba(174,1,2,0.2);
+  background: rgba(174,1,2,0.03);
+}
+
+.design-ba-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.design-ba-label.before { color: var(--secondary); }
+.design-ba-label.after { color: var(--accent); }
+
+.design-ba-mockup {
+  background: rgba(10,10,11,0.6);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ba-mock-header {
+  width: 100%;
+  height: 30px;
+  background: rgba(218,196,176,0.1);
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.ba-mock-body {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+}
+
+.ba-mock-img {
+  width: 80px;
+  height: 80px;
+  background: rgba(218,196,176,0.1);
+  border-radius: 8px;
+}
+
+.ba-mock-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ba-mock-line {
+  height: 6px;
+  background: rgba(218,196,176,0.15);
+  border-radius: 3px;
+}
+
+.ba-mock-line.short { width: 60%; }
+
+/* After mockup - premium */
+.design-ba-card.after .ba-mock-header {
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+}
+
+.design-ba-card.after .ba-mock-img {
+  background: linear-gradient(135deg, rgba(174,1,2,0.3), rgba(162,128,105,0.2));
+  border: 1px solid rgba(218,196,176,0.2);
+}
+
+.design-ba-card.after .ba-mock-line {
+  background: rgba(218,196,176,0.25);
+}
+
+/* ========== BUSINESS OPERATIONS ========== */
+.slide-ops {
+  background: linear-gradient(180deg, #0a0a0b 0%, #1a1515 100%);
+}
+
+.ops-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 24px;
+  flex: 1;
+}
+
+.ops-panel {
+  background: rgba(31,32,34,0.6);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+
+.ops-panel:hover {
+  border-color: rgba(174,1,2,0.12);
+}
+
+.ops-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ops-panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Kanban */
+.kanban-columns {
+  display: flex;
+  gap: 14px;
+  flex: 1;
+}
+
+.kanban-col {
+  flex: 1;
+  background: rgba(10,10,11,0.4);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-col-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(218,196,176,0.08);
+}
+
+.kanban-col-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+.kanban-col-dot.todo { background: var(--secondary); }
+.kanban-col-dot.progress { background: #febc2e; }
+.kanban-col-dot.done { background: #28c840; }
+
+.kanban-col-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: 0.5px;
+}
+
+.kanban-col-count {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--secondary);
+  background: rgba(218,196,176,0.08);
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.kanban-card {
+  background: rgba(31,32,34,0.8);
+  border: 1px solid rgba(218,196,176,0.06);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.kanban-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  border-color: rgba(174,1,2,0.1);
+}
+
+.kanban-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--light);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.kanban-card-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.kanban-tag {
+  font-size: 9px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.kanban-tag-high { background: rgba(174,1,2,0.15); color: var(--accent); }
+.kanban-tag-medium { background: rgba(254,188,46,0.15); color: #febc2e; }
+.kanban-tag-low { background: rgba(40,200,64,0.15); color: #28c840; }
+
+.kanban-avatars {
+  display: flex;
+  margin-left: auto;
+}
+
+.kanban-avatar {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary), var(--dark-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 800;
+  color: #fff;
+  border: 2px solid rgba(31,32,34,0.8);
+  margin-left: -8px;
+}
+
+/* Reporting */
+.report-metric {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  background: rgba(10,10,11,0.4);
+  border-radius: 14px;
+  margin-bottom: 12px;
+  transition: all 0.3s;
+}
+
+.report-metric:hover {
+  background: rgba(10,10,11,0.5);
+  transform: translateX(4px);
+}
+
+.report-metric-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(174,1,2,0.2), rgba(106,5,6,0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(174,1,2,0.15);
+}
+
+.report-metric-info { flex: 1; }
+
+.report-metric-label {
+  font-size: 11px;
+  color: var(--secondary);
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.report-metric-value {
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.report-metric-change {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.report-metric-change.up {
+  background: rgba(40, 200, 64, 0.15);
+  color: #28c840;
+}
+
+/* Automation Flow */
+.flow-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  justify-content: center;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flow-node {
+  flex: 1;
+  background: rgba(10,10,11,0.5);
+  border: 1px solid rgba(218,196,176,0.1);
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s;
+}
+
+.flow-node:hover {
+  border-color: rgba(174,1,2,0.2);
+  transform: translateX(6px);
+  background: rgba(174,1,2,0.03);
+}
+
+.flow-node-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(174,1,2,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.flow-node-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: 0.5px;
+}
+
+.flow-arrow {
+  display: flex;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* Process Stages */
+.process-stages {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.process-stage {
+  flex: 1;
+  text-align: center;
+  padding: 14px 8px;
+  background: rgba(10,10,11,0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(218,196,176,0.06);
+  transition: all 0.3s;
+}
+
+.process-stage:hover {
+  background: rgba(174,1,2,0.05);
+  border-color: rgba(174,1,2,0.15);
+  transform: translateY(-3px);
+}
+
+.process-stage-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 auto 10px;
+}
+
+.process-stage-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+
+/* ========== TOOLS ========== */
+.slide-tools {
+  background: linear-gradient(135deg, #0f0f10 0%, #1a0a0a 50%, #1F2022 100%);
+}
+
+.tools-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  flex: 1;
+}
+
+.tools-category {
+  background: rgba(31,32,34,0.5);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s;
+}
+
+.tools-category:hover {
+  border-color: rgba(174,1,2,0.15);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.tools-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(218,196,176,0.08);
+}
+
+.tools-cat-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(174,1,2,0.2), rgba(106,5,6,0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 4px 15px rgba(174,1,2,0.1);
+}
+
+.tools-cat-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.tools-cat-sub {
+  font-size: 11px;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.tool-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tool-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(10,10,11,0.4);
+  border-radius: 12px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.tool-item:hover {
+  background: rgba(174,1,2,0.05);
+  transform: translateX(6px);
+}
+
+.tool-item-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(218,196,176,0.1), rgba(162,128,105,0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--light);
+  flex-shrink: 0;
+}
+
+.tool-item-info {
+  flex: 1;
+}
+
+.tool-item-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--light);
+  margin-bottom: 2px;
+}
+
+.tool-item-use {
+  font-size: 11px;
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+/* ========== RESULTS DASHBOARD ========== */
+.slide-results {
+  background: linear-gradient(180deg, #0a0a0b 0%, #1a0a0a 50%, #0f0f10 100%);
+}
+
+.results-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.results-mega-card {
+  background: linear-gradient(145deg, rgba(31,32,34,0.9) 0%, rgba(26,10,10,0.8) 100%);
+  border: 1px solid rgba(218,196,176,0.1);
+  border-radius: 24px;
+  padding: 40px 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+.results-mega-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(174,1,2,0.06) 0%, transparent 60%);
+}
+
+.results-mega-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(174,1,2,0.2);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+
+.results-mega-number {
+  font-size: 56px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.results-mega-number span {
+  font-size: 32px;
+  color: var(--accent);
+}
+
+.results-mega-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.results-mega-sub {
+  font-size: 11px;
+  color: rgba(218,196,176,0.35);
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+  line-height: 1.5;
+}
+
+.results-charts-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 24px;
+  flex: 1;
+}
+
+.results-chart-panel {
+  background: rgba(31,32,34,0.5);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-panel-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Funnel */
+.funnel-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.funnel-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.funnel-stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 3s infinite;
+  background-size: 200% 100%;
+}
+
+.funnel-stage-1 { width: 90%; background: linear-gradient(90deg, var(--accent), var(--primary)); }
+.funnel-stage-2 { width: 75%; background: linear-gradient(90deg, rgba(174,1,2,0.8), rgba(106,5,6,0.9)); }
+.funnel-stage-3 { width: 60%; background: linear-gradient(90deg, rgba(174,1,2,0.6), rgba(106,5,6,0.7)); }
+.funnel-stage-4 { width: 45%; background: linear-gradient(90deg, rgba(174,1,2,0.4), rgba(106,5,6,0.5)); }
+
+.funnel-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 12px;
+}
+
+.funnel-label {
+  font-size: 10px;
+  color: var(--secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  flex: 1;
+}
+
+/* Support Metrics */
+.support-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  justify-content: center;
+}
+
+.support-metric {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.support-metric-bar {
+  flex: 1;
+  height: 36px;
+  background: rgba(218,196,176,0.06);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.support-metric-fill {
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.support-metric-label {
+  width: 100px;
+  font-size: 11px;
+  color: var(--secondary);
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ========== WHY WORK WITH ME ========== */
+.slide-why {
+  background: linear-gradient(135deg, #0f0f10 0%, #1a1515 100%);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.why-card {
+  background: linear-gradient(145deg, rgba(31,32,34,0.8) 0%, rgba(26,21,21,0.6) 100%);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 24px;
+  padding: 40px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--primary), var(--dark-accent));
+}
+
+.why-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(174,1,2,0.25);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3), 0 0 30px rgba(174,1,2,0.06);
+}
+
+.why-icon {
+  width: 68px; height: 68px;
+  margin: 0 auto 24px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(174,1,2,0.2), rgba(106,5,6,0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(174,1,2,0.15);
+}
+
+.why-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.why-desc {
+  font-size: 12px;
+  color: var(--secondary);
+  line-height: 1.7;
+}
+
+/* Comparison Table */
+.comparison-table-wrap {
+  background: rgba(31,32,34,0.5);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  backdrop-filter: blur(15px);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(218,196,176,0.1);
+}
+
+.comparison-table td {
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--light);
+  border-bottom: 1px solid rgba(218,196,176,0.05);
+  font-weight: 600;
+}
+
+.comparison-table tr:hover td {
+  background: rgba(218,196,176,0.03);
+}
+
+.comparison-table .check {
+  color: #28c840;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.comparison-table .cross {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.comparison-table .highlight {
+  background: rgba(174,1,2,0.03);
+}
+
+/* ========== HOW I WORK ========== */
+.slide-process {
+  background: linear-gradient(180deg, #0a0a0b 0%, #1a1010 100%);
+}
+
+.process-timeline {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.process-step-card {
+  flex: 1;
+  max-width: 220px;
+  background: rgba(31,32,34,0.7);
+  border: 1px solid rgba(218,196,176,0.1);
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-step-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(174,1,2,0.3);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.process-step-num {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 25px rgba(174,1,2,0.3);
+}
+
+.process-step-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.process-step-desc {
+  font-size: 12px;
+  color: var(--secondary);
+  line-height: 1.6;
+}
+
+.process-arrow {
+  color: var(--accent);
+  font-size: 24px;
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+.process-mini-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.process-mini-card {
+  background: rgba(31,32,34,0.5);
+  border: 1px solid rgba(218,196,176,0.08);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.process-mini-card:hover {
+  border-color: rgba(174,1,2,0.15);
+  transform: translateY(-4px);
+}
+
+.process-mini-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(174,1,2,0.15), rgba(106,5,6,0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 14px;
+}
+
+.process-mini-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--light);
+  margin-bottom: 6px;
+}
+
+.process-mini-desc {
+  font-size: 11px;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+/* ========== SERVICE PACKAGES ========== */
+.slide-packages {
+  background: linear-gradient(135deg, #0f0f10 0%, #1a0a0a 50%, #0f0f10 100%);
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  flex: 1;
+  align-items: center;
+}
+
+.package-card {
+  background: linear-gradient(145deg, rgba(31,32,34,0.8) 0%, rgba(26,21,21,0.6) 100%);
+  border: 1px solid rgba(218,196,176,0.1);
+  border-radius: 28px;
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.package-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(174,1,2,0.25);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.4), 0 0 40px rgba(174,1,2,0.08);
+}
+
+.package-card.featured {
+  border-color: rgba(174,1,2,0.3);
+  background: linear-gradient(145deg, rgba(31,32,34,0.9) 0%, rgba(26,10,10,0.7) 100%);
+  transform: scale(1.05);
+}
+
+.package-card.featured:hover {
+  transform: scale(1.05) translateY(-12px);
+}
+
+.package-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(174,1,2,0.15);
+  color: var(--accent);
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.package-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.package-desc {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  min-height: 60px;
+}
+
+.package-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.package-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--light);
+  font-weight: 600;
+}
+
+.package-feature::before {
+  content: '\2713';
+  color: #28c840;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.package-cta {
+  display: inline-block;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #fff;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(174,1,2,0.2);
+}
+
+.package-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(174,1,2,0.35);
+}
+
+.package-price {
+  font-size: 12px;
+  color: var(--secondary);
+  margin-top: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ========== CONTACT / CTA ========== */
+.slide-contact {
+  background: linear-gradient(135deg, #0a0a0b 0%, #1a0a0a 40%, #1F2022 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.contact-glass {
+  background: rgba(31, 32, 34, 0.6);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(218, 196, 176, 0.15);
+  border-radius: 32px;
+  padding: 70px 90px;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.contact-glow {
+  position: absolute;
+  width: 500px; height: 500px;
+  top: -150px; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(174,1,2,0.1) 0%, transparent 60%);
+  filter: blur(80px);
+}
+
+.contact-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(174,1,2,0.12);
+  border: 1px solid rgba(174,1,2,0.25);
+  padding: 10px 28px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+  letter-spacing: -1px;
+}
+
+.contact-subtitle {
+  font-size: 17px;
+  color: var(--secondary);
+  margin-bottom: 44px;
+  line-height: 1.7;
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-cta-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 10px 40px rgba(174,1,2,0.3);
+}
+
+.contact-cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(174,1,2,0.4);
+}
+
+.contact-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--light);
+  padding: 16px 40px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(218, 196, 176, 0.25);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.contact-cta-secondary:hover {
+  background: rgba(218, 196, 176, 0.08);
+  border-color: rgba(218, 196, 176, 0.4);
+  transform: translateY(-3px);
+}
+
+.contact-details {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.contact-detail-icon {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  background: rgba(218,196,176,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--light);
+}
+
+/* ========== DISCLAIMER ========== */
+.disclaimer {
+  background: rgba(10,10,11,0.95);
+  border-top: 1px solid rgba(218,196,176,0.06);
+  padding: 24px 60px;
+  text-align: center;
+}
+
+.disclaimer-text {
+  font-size: 11px;
+  color: rgba(218,196,176,0.3);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1200px) {
+  .slide { padding: 100px 40px 60px; }
+  .hero-title { font-size: 56px; }
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .design-gallery { grid-template-columns: repeat(2, 1fr); }
+  .results-hero-grid { grid-template-columns: repeat(2, 1fr); }
+  .results-charts-grid { grid-template-columns: 1fr 1fr; }
+  .packages-grid { grid-template-columns: repeat(2, 1fr); }
+  .package-card.featured { transform: scale(1); }
+  .package-card.featured:hover { transform: scale(1) translateY(-12px); }
+}
+
+@media (max-width: 900px) {
+  .sticky-nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-dashboards { display: none; }
+  .hero-title { font-size: 42px; }
+  .case-study-layout { grid-template-columns: 1fr; }
+  .email-layout { grid-template-columns: 1fr; }
+  .social-layout { grid-template-columns: 1fr; }
+  .ops-layout { grid-template-columns: 1fr; }
+  .tools-category-grid { grid-template-columns: 1fr 1fr; }
+  .dash-preview-grid { grid-template-columns: 1fr; }
+  .process-timeline { flex-direction: column; }
+  .process-arrow { transform: rotate(90deg); }
+  .design-caps { grid-template-columns: repeat(2, 1fr); }
+  .design-ba { grid-template-columns: 1fr; }
+  .pillar-grid { grid-template-columns: repeat(3, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: 1fr; }
+  .packages-grid { grid-template-columns: 1fr; }
+  .results-hero-grid { grid-template-columns: 1fr 1fr; }
+  .results-charts-grid { grid-template-columns: 1fr; }
+  .contact-title { font-size: 42px; }
+  .contact-glass { padding: 50px 30px; }
+  .float-kpi { display: none; }
+  .eco-node { position: relative; top: auto; left: auto; right: auto; bottom: auto; transform: none; width: auto; }
+  .ecosystem-wrapper { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .eco-center { position: relative; grid-column: 1 / -1; margin-bottom: 20px; }
+  .eco-connector { display: none; }
+  .process-mini-cards { grid-template-columns: repeat(2, 1fr); }
+  .case-kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .before-after-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .slide { padding: 80px 20px 40px; }
+  .hero-title { font-size: 32px; }
+  .slide-title { font-size: 32px; }
+  .hero-cta-row { flex-direction: column; }
+  .kpi-grid { grid-template-columns: 1fr; }
+  .results-hero-grid { grid-template-columns: 1fr; }
+  .tools-category-grid { grid-template-columns: 1fr; }
+  .design-gallery { grid-template-columns: 1fr; }
+  .design-caps { grid-template-columns: 1fr; }
+  .contact-cta-row { flex-direction: column; }
+  .contact-details { flex-direction: column; gap: 16px; }
+  .process-mini-cards { grid-template-columns: 1fr; }
+  .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+  .cal-grid { gap: 4px; }
+  .cal-grid-day { font-size: 10px; }
+  .lead-table { font-size: 10px; }
+  .lead-table th, .lead-table td { padding: 8px; }
+  .case-kpi-row { grid-template-columns: 1fr; }
+  .kanban-columns { flex-direction: column; }
+  .post-preview-grid { grid-template-columns: 1fr; }
+  .platform-bars { gap: 12px; }
+  .contact-title { font-size: 32px; }
+}
+
+/* ========== UTILITY ========== */
+.text-gradient {
+  background: linear-gradient(135deg, var(--light), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-text {
+  text-shadow: 0 0 40px rgba(174,1,2,0.3);
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- SVG Definitions -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#AE0102"/>
+      <stop offset="100%" style="stop-color:#6A0506"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- ========== STICKY NAVIGATION ========== -->
+<nav class="sticky-nav" id="navbar">
+  <div class="nav-brand">Arisha <span>Saleem</span></div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#lead">Case Studies</a></li>
+    <li><a href="#design">Design Work</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Work With Me</a>
+</nav>
+
+<!-- ============================================ -->
+<!-- SLIDE 1: HERO COVER -->
+<!-- ============================================ -->
+<section class="slide slide-hero" id="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="slide-inner">
+    <div class="hero-grid">
+      <div class="hero-left animate-on-scroll">
+        <div class="hero-name">Arisha Saleem</div>
+        <div class="hero-tag">
+          <div class="hero-tag-dot"></div>
+          Available for Executive Partnership
+        </div>
+        <div class="hero-title">Executive<br>Virtual<br><span class="accent">Assistant</span></div>
+        <div class="hero-subtitle">Premium virtual support for business owners who demand organized, reliable, and proactive operations management.</div>
+
+        <div class="hero-service-tags">
+          <span class="hero-service-tag">Lead Generation</span>
+          <span class="hero-service-tag">Email Management</span>
+          <span class="hero-service-tag">Social Media</span>
+          <span class="hero-service-tag">Admin Support</span>
+          <span class="hero-service-tag">Business Operations</span>
+          <span class="hero-service-tag">Graphic Design</span>
+        </div>
+
+        <div class="hero-cta-row">
+          <a href="#contact" class="hero-cta-primary">Work With Me</a>
+          <a href="#results" class="hero-cta-secondary">View Portfolio</a>
+        </div>
+      </div>
+
+      <div class="hero-dashboards">
+        <div class="dash-card dash-card-1">
+          <div class="dash-header">
+            <div class="dash-dot dash-dot-red"></div>
+            <div class="dash-dot dash-dot-yellow"></div>
+            <div class="dash-dot dash-dot-green"></div>
+            <div class="dash-title">CRM Dashboard</div>
+          </div>
+          <div class="dash-body">
+            <div class="dash-kpi-row">
+              <div class="dash-kpi-mini">
+                <div class="val">247</div>
+                <div class="lbl">Active</div>
+              </div>
+              <div class="dash-kpi-mini">
+                <div class="val">89</div>
+                <div class="lbl">Qualified</div>
+              </div>
+              <div class="dash-kpi-mini">
+                <div class="val">34</div>
+                <div class="lbl">Closed</div>
+              </div>
+            </div>
+            <div class="dash-chart-bar">
+              <div class="dash-bar" style="height:40%"></div>
+              <div class="dash-bar" style="height:65%"></div>
+              <div class="dash-bar" style="height:50%"></div>
+              <div class="dash-bar" style="height:80%"></div>
+              <div class="dash-bar" style="height:60%"></div>
+              <div class="dash-bar" style="height:90%"></div>
+              <div class="dash-bar" style="height:75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card dash-card-2">
+          <div class="dash-header">
+            <div class="dash-dot dash-dot-red"></div>
+            <div class="dash-dot dash-dot-yellow"></div>
+            <div class="dash-dot dash-dot-green"></div>
+            <div class="dash-title">Inbox Manager</div>
+          </div>
+          <div class="dash-body">
+            <div class="dash-inbox-item">
+              <div class="dash-avatar">JD</div>
+              <div class="dash-inbox-text">
+                <div class="line1"></div>
+                <div class="line2"></div>
+              </div>
+            </div>
+            <div class="dash-inbox-item">
+              <div class="dash-avatar">MK</div>
+              <div class="dash-inbox-text">
+                <div class="line1"></div>
+                <div class="line2"></div>
+              </div>
+            </div>
+            <div class="dash-inbox-item">
+              <div class="dash-avatar">SL</div>
+              <div class="dash-inbox-text">
+                <div class="line1"></div>
+                <div class="line2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card dash-card-3">
+          <div class="dash-header">
+            <div class="dash-dot dash-dot-red"></div>
+            <div class="dash-dot dash-dot-yellow"></div>
+            <div class="dash-dot dash-dot-green"></div>
+            <div class="dash-title">Lead Pipeline</div>
+          </div>
+          <div class="dash-body">
+            <div class="dash-pipeline">
+              <div class="dash-pipe-stage fill" style="width:30%"></div>
+              <div class="dash-pipe-stage fill" style="width:25%"></div>
+              <div class="dash-pipe-stage fill" style="width:20%"></div>
+              <div class="dash-pipe-stage" style="width:25%"></div>
+            </div>
+            <div class="dash-pipe-labels">
+              <span>New</span><span>Contacted</span><span>Qualified</span><span>Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card dash-card-4">
+          <div class="dash-body" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;height:100%">
+            <div style="font-size:28px;font-weight:900;color:#fff">10.2K</div>
+            <div style="font-size:9px;color:var(--secondary);text-transform:uppercase;letter-spacing:1px;font-weight:700">Social Reach</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="float-kpi float-kpi-1">
+    <div class="num">500+</div>
+    <div class="lbl">Leads Generated</div>
+  </div>
+  <div class="float-kpi float-kpi-2">
+    <div class="num">98%</div>
+    <div class="lbl">Accuracy Rate</div>
+  </div>
+  <div class="float-kpi float-kpi-3">
+    <div class="num">3+</div>
+    <div class="lbl">Years Experience</div>
+  </div>
+
+  <div class="slide-number">01</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 2: EXECUTIVE SUMMARY -->
+<!-- ============================================ -->
+<section class="slide slide-summary" id="summary">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Performance Overview</div>
+      <div class="slide-title">Executive Summary</div>
+      <div class="slide-subtitle">A data-driven overview of operational excellence, delivery consistency, and client impact across all service verticals.</div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card animate-on-scroll stagger-1">
+        <div class="kpi-number">3<span>+</span></div>
+        <div class="kpi-label">Years Experience</div>
+        <div class="kpi-sub">Executive-level virtual assistance across multiple industries</div>
+      </div>
+      <div class="kpi-card animate-on-scroll stagger-2">
+        <div class="kpi-number">500<span>+</span></div>
+        <div class="kpi-label">Leads Generated</div>
+        <div class="kpi-sub">Qualified prospects with verified data & CRM-ready formatting</div>
+      </div>
+      <div class="kpi-card animate-on-scroll stagger-3">
+        <div class="kpi-number">1000<span>+</span></div>
+        <div class="kpi-label">Tasks Managed</div>
+        <div class="kpi-sub">End-to-end operations, admin, research & creative execution</div>
+      </div>
+      <div class="kpi-card animate-on-scroll stagger-4">
+        <div class="kpi-number">98<span>%</span></div>
+        <div class="kpi-label">Accuracy Rate</div>
+        <div class="kpi-sub">Zero-error data precision with quality control checkpoints</div>
+      </div>
+      <div class="kpi-card animate-on-scroll stagger-5">
+        <div class="kpi-number">24<span>–48hr</span></div>
+        <div class="kpi-label">Turnaround</div>
+        <div class="kpi-sub">Rapid delivery with buffer planning for urgent priorities</div>
+      </div>
+      <div class="kpi-card animate-on-scroll stagger-6">
+        <div class="kpi-number">10<span>+</span></div>
+        <div class="kpi-label">Services</div>
+        <div class="kpi-sub">Multi-service support from admin to creative operations</div>
+      </div>
+    </div>
+
+    <div class="dash-preview-grid">
+      <div class="dash-preview-panel animate-on-scroll">
+        <div class="dash-preview-header">
+          <div class="dash-preview-title">&#128200; Weekly Output</div>
+          <div class="dash-preview-badge">+24% vs last month</div>
+        </div>
+        <div class="mini-chart">
+          <div class="mini-bar" style="height:45%" data-val="45"></div>
+          <div class="mini-bar" style="height:70%" data-val="70"></div>
+          <div class="mini-bar" style="height:55%" data-val="55"></div>
+          <div class="mini-bar" style="height:85%" data-val="85"></div>
+          <div class="mini-bar" style="height:60%" data-val="60"></div>
+          <div class="mini-bar" style="height:95%" data-val="95"></div>
+          <div class="mini-bar" style="height:75%" data-val="75"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--secondary);font-weight:700;letter-spacing:1px;text-transform:uppercase">
+          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+      </div>
+
+      <div class="dash-preview-panel animate-on-scroll stagger-1">
+        <div class="dash-preview-header">
+          <div class="dash-preview-title">&#128260; Efficiency Metrics</div>
+          <div class="dash-preview-badge">Live</div>
+        </div>
+        <div class="progress-ring-container">
+          <div class="progress-ring-wrap">
+            <div class="progress-ring">
+              <svg width="110" height="110" viewBox="0 0 110 110">
+                <circle class="progress-ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="progress-ring-fill" cx="55" cy="55" r="45" stroke-dashoffset="15.7"/>
+              </svg>
+              <div class="progress-ring-text">95%</div>
+            </div>
+            <div class="progress-ring-label">On-Time</div>
+          </div>
+          <div class="progress-ring-wrap">
+            <div class="progress-ring">
+              <svg width="110" height="110" viewBox="0 0 110 110">
+                <circle class="progress-ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="progress-ring-fill" cx="55" cy="55" r="45" stroke-dashoffset="6.28"/>
+              </svg>
+              <div class="progress-ring-text">98%</div>
+            </div>
+            <div class="progress-ring-label">Accuracy</div>
+          </div>
+          <div class="progress-ring-wrap">
+            <div class="progress-ring">
+              <svg width="110" height="110" viewBox="0 0 110 110">
+                <circle class="progress-ring-bg" cx="55" cy="55" r="45"/>
+                <circle class="progress-ring-fill" cx="55" cy="55" r="45" stroke-dashoffset="31.4"/>
+              </svg>
+              <div class="progress-ring-text">90%</div>
+            </div>
+            <div class="progress-ring-label">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-preview-panel animate-on-scroll stagger-2">
+        <div class="dash-preview-header">
+          <div class="dash-preview-title">&#128221; Recent Deliverables</div>
+          <div class="dash-preview-badge">This Week</div>
+        </div>
+        <div class="task-list">
+          <div class="task-item">
+            <div class="task-check">&#10003;</div>
+            <div class="task-text">Lead database cleanup & enrichment</div>
+            <div class="task-tag">CRM</div>
+          </div>
+          <div class="task-item">
+            <div class="task-check">&#10003;</div>
+            <div class="task-text">Social media content calendar Q3</div>
+            <div class="task-tag">SMM</div>
+          </div>
+          <div class="task-item">
+            <div class="task-check">&#10003;</div>
+            <div class="task-text">Executive inbox zero initiative</div>
+            <div class="task-tag">Email</div>
+          </div>
+          <div class="task-item">
+            <div class="task-check">&#10003;</div>
+            <div class="task-text">Workflow automation setup</div>
+            <div class="task-tag">Ops</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">02</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 3: SERVICE ECOSYSTEM -->
+<!-- ============================================ -->
+<section class="slide slide-services" id="services">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Core Capabilities</div>
+      <div class="slide-title">Service Ecosystem</div>
+      <div class="slide-subtitle">A comprehensive suite of executive support services designed to streamline operations and accelerate business growth.</div>
+    </div>
+
+    <div class="ecosystem-wrapper">
+      <div class="eco-connector"></div>
+      <div class="eco-connector eco-connector-2"></div>
+
+      <div class="eco-center animate-on-scroll">
+        <div class="eco-center-inner">
+          <div class="eco-center-title">Executive<br>Virtual<br>Assistant</div>
+          <div class="eco-center-sub">Arisha Saleem</div>
+        </div>
+      </div>
+
+      <div class="eco-node node-1 animate-on-scroll stagger-1">
+        <div class="eco-node-icon">&#128200;</div>
+        <div class="eco-node-title">Lead<br>Generation</div>
+        <div class="eco-node-desc">Prospecting, research, list building, CRM entry</div>
+      </div>
+      <div class="eco-node node-2 animate-on-scroll stagger-2">
+        <div class="eco-node-icon">&#9993;</div>
+        <div class="eco-node-title">Email<br>Management</div>
+        <div class="eco-node-desc">Inbox zero, filtering, priority routing, drafts</div>
+      </div>
+      <div class="eco-node node-3 animate-on-scroll stagger-3">
+        <div class="eco-node-icon">&#128247;</div>
+        <div class="eco-node-title">Social<br>Media</div>
+        <div class="eco-node-desc">Scheduling, content calendars, analytics</div>
+      </div>
+      <div class="eco-node node-4 animate-on-scroll stagger-4">
+        <div class="eco-node-icon">&#128202;</div>
+        <div class="eco-node-title">CRM<br>Management</div>
+        <div class="eco-node-desc">Data entry, pipeline updates, reporting</div>
+      </div>
+      <div class="eco-node node-5 animate-on-scroll stagger-5">
+        <div class="eco-node-icon">&#9881;</div>
+        <div class="eco-node-title">Business<br>Operations</div>
+        <div class="eco-node-desc">Workflows, SOPs, project coordination</div>
+      </div>
+      <div class="eco-node node-6 animate-on-scroll stagger-1">
+        <div class="eco-node-icon">&#128269;</div>
+        <div class="eco-node-title">Web<br>Research</div>
+        <div class="eco-node-desc">Market intel, competitor analysis, data</div>
+      </div>
+      <div class="eco-node node-7 animate-on-scroll stagger-2">
+        <div class="eco-node-icon">&#128172;</div>
+        <div class="eco-node-title">Customer<br>Support</div>
+        <div class="eco-node-desc">Ticket management, response handling</div>
+      </div>
+      <div class="eco-node node-8 animate-on-scroll stagger-3">
+        <div class="eco-node-icon">&#128221;</div>
+        <div class="eco-node-title">Admin<br>Support</div>
+        <div class="eco-node-desc">Calendar, docs, travel, data entry</div>
+      </div>
+      <div class="eco-node node-9 animate-on-scroll stagger-4">
+        <div class="eco-node-icon">&#128396;</div>
+        <div class="eco-node-title">Graphic<br>Design</div>
+        <div class="eco-node-desc">Social graphics, banners, presentations</div>
+      </div>
+      <div class="eco-node node-10 animate-on-scroll stagger-5">
+        <div class="eco-node-icon">&#128197;</div>
+        <div class="eco-node-title">Calendar<br>Management</div>
+        <div class="eco-node-desc">Scheduling, reminders, coordination</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">03</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 4: LEAD GENERATION CASE STUDY -->
+<!-- ============================================ -->
+<section class="slide slide-lead" id="lead">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Case Study</div>
+      <div class="slide-title">Lead Generation</div>
+      <div class="slide-subtitle">End-to-end lead generation campaign: from prospect research to CRM-ready qualified database delivery.</div>
+    </div>
+
+    <div class="case-study-layout">
+      <div class="case-left">
+        <div class="case-panel animate-on-scroll">
+          <div class="case-panel-header">
+            <div class="case-panel-title">&#128200; Project Overview</div>
+            <div class="case-panel-badge">Case Study</div>
+          </div>
+          <div class="case-story">
+            <div class="case-story-block">
+              <div class="case-story-label">Challenge</div>
+              <div class="case-story-text">Client needed 500+ qualified B2B leads in 30 days with verified decision-maker contact data for SaaS outreach.</div>
+            </div>
+            <div class="case-story-block">
+              <div class="case-story-label">Solution</div>
+              <div class="case-story-text">Multi-channel prospecting via LinkedIn, industry directories, and web research with custom scoring framework.</div>
+            </div>
+            <div class="case-story-block">
+              <div class="case-story-label">Deliverables</div>
+              <div class="case-story-text">CRM-ready database, pipeline stages, outreach templates, and weekly progress dashboards.</div>
+            </div>
+            <div class="case-story-block">
+              <div class="case-story-label">Results</div>
+              <div class="case-story-text">500+ leads delivered in 48 hours, 95% data accuracy, 18% conversion rate, zero bounced emails.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-panel animate-on-scroll stagger-1">
+          <div class="case-panel-header">
+            <div class="case-panel-title">&#128200; Lead Pipeline</div>
+            <div class="case-panel-badge">Live Data</div>
+          </div>
+          <div class="pipeline-stages">
+            <div class="pipe-stage">
+              <div class="pipe-stage-bar">500</div>
+              <div class="pipe-stage-label">Prospects</div>
+            </div>
+            <div class="pipe-stage">
+              <div class="pipe-stage-bar">380</div>
+              <div class="pipe-stage-label">Contacted</div>
+            </div>
+            <div class="pipe-stage">
+              <div class="pipe-stage-bar">245</div>
+              <div class="pipe-stage-label">Qualified</div>
+            </div>
+            <div class="pipe-stage">
+              <div class="pipe-stage-bar">89</div>
+              <div class="pipe-stage-label">Converted</div>
+            </div>
+          </div>
+          <div class="case-kpi-row">
+            <div class="case-kpi-mini">
+              <div class="val">500+</div>
+              <div class="lbl">Qualified Leads</div>
+            </div>
+            <div class="case-kpi-mini">
+              <div class="val">95%</div>
+              <div class="lbl">Data Accuracy</div>
+            </div>
+            <div class="case-kpi-mini">
+              <div class="val">48hr</div>
+              <div class="lbl">Delivery</div>
+            </div>
+            <div class="case-kpi-mini">
+              <div class="val">18%</div>
+              <div class="lbl">Conversion</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-right">
+        <div class="case-panel animate-on-scroll">
+          <div class="case-panel-header">
+            <div class="case-panel-title">&#128202; Lead Database</div>
+            <div class="case-panel-badge">500+ Records</div>
+          </div>
+          <div class="lead-table-wrap">
+            <table class="lead-table">
+              <tr>
+                <th>#</th>
+                <th>Company</th>
+                <th>Decision Maker</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Quality</th>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Acme Corp</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="contact-avatar">JD</div>John Doe</div></td>
+                <td>CEO</td>
+                <td><span class="status-badge status-qualified">Qualified</span></td>
+                <td>A+</td>
+              </tr>
+              <tr>
+                <td>02</td>
+                <td>TechFlow Inc</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="contact-avatar">SM</div>Sarah Miller</div></td>
+                <td>VP Sales</td>
+                <td><span class="status-badge status-new">New</span></td>
+                <td>A</td>
+              </tr>
+              <tr>
+                <td>03</td>
+                <td>Global Ventures</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="contact-avatar">RK</div>Robert Kim</div></td>
+                <td>Director</td>
+                <td><span class="status-badge status-contacted">Contacted</span></td>
+                <td>A</td>
+              </tr>
+              <tr>
+                <td>04</td>
+                <td>NextGen Solutions</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="contact-avatar">AL</div>Amanda Lee</div></td>
+                <td>CMO</td>
+                <td><span class="status-badge status-qualified">Qualified</span></td>
+                <td>A+</td>
+              </tr>
+              <tr>
+                <td>05</td>
+                <td>StartupCo</td>
+                <td><div style="display:flex;align-items:center;gap:8px"><div class="contact-avatar">DC</div>David Chen</div></td>
+                <td>Founder</td>
+                <td><span class="status-badge status-nurturing">Nurturing</span></td>
+                <td>B+</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="case-panel animate-on-scroll stagger-1">
+          <div class="case-panel-header">
+            <div class="case-panel-title">&#128221; Outreach Tracker</div>
+            <div class="case-panel-badge">This Quarter</div>
+          </div>
+          <div style="display:flex;gap:16px;margin-bottom:20px">
+            <div style="flex:1;text-align:center;padding:18px;background:rgba(174,1,2,0.06);border-radius:14px;border:1px solid rgba(174,1,2,0.1)">
+              <div style="font-size:32px;font-weight:900;color:#fff">89%</div>
+              <div style="font-size:10px;color:var(--secondary);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-top:6px">Open Rate</div>
+            </div>
+            <div style="width:1px;background:rgba(218,196,176,0.1)"></div>
+            <div style="flex:1;text-align:center;padding:18px;background:rgba(174,1,2,0.06);border-radius:14px;border:1px solid rgba(174,1,2,0.1)">
+              <div style="font-size:32px;font-weight:900;color:#fff">34%</div>
+              <div style="font-size:10px;color:var(--secondary);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-top:6px">Reply Rate</div>
+            </div>
+            <div style="width:1px;background:rgba(218,196,176,0.1)"></div>
+            <div style="flex:1;text-align:center;padding:18px;background:rgba(174,1,2,0.06);border-radius:14px;border:1px solid rgba(174,1,2,0.1)">
+              <div style="font-size:32px;font-weight:900;color:#fff">18%</div>
+              <div style="font-size:10px;color:var(--secondary);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-top:6px">Conversion</div>
+            </div>
+          </div>
+          <div class="mini-chart" style="height:60px">
+            <div class="mini-bar" style="height:60%"></div>
+            <div class="mini-bar" style="height:75%"></div>
+            <div class="mini-bar" style="height:55%"></div>
+            <div class="mini-bar" style="height:85%"></div>
+            <div class="mini-bar" style="height:70%"></div>
+            <div class="mini-bar" style="height:90%"></div>
+            <div class="mini-bar" style="height:80%"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--secondary);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:8px">
+            <span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">04</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 5: EMAIL MANAGEMENT -->
+<!-- ============================================ -->
+<section class="slide slide-email" id="email">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Case Study</div>
+      <div class="slide-title">Email Management</div>
+      <div class="slide-subtitle">Transforming chaotic inboxes into organized, prioritized, and actionable communication systems.</div>
+    </div>
+
+    <div class="email-layout">
+      <div class="email-sidebar animate-on-scroll">
+        <div class="email-sidebar-header">&#128193; Folders</div>
+        <div class="email-folder active">
+          <span>&#9733;</span> Inbox <span class="email-folder-count">12</span>
+        </div>
+        <div class="email-folder">
+          <span>&#9734;</span> Starred <span class="email-folder-count">5</span>
+        </div>
+        <div class="email-folder">
+          <span>&#9998;</span> Drafts <span class="email-folder-count">3</span>
+        </div>
+        <div class="email-folder">
+          <span>&#10148;</span> Sent <span class="email-folder-count">48</span>
+        </div>
+        <div class="email-folder">
+          <span>&#9851;</span> Archive <span class="email-folder-count">234</span>
+        </div>
+        <div class="email-folder">
+          <span>&#128465;</span> Trash <span class="email-folder-count">18</span>
+        </div>
+        <div class="email-labels-list">
+          <div class="email-sidebar-header">&#127991; Labels</div>
+          <div class="email-label-item">
+            <span class="email-label-dot" style="background:var(--accent)"></span> Urgent
+          </div>
+          <div class="email-label-item">
+            <span class="email-label-dot" style="background:#28c840"></span> Client
+          </div>
+          <div class="email-label-item">
+            <span class="email-label-dot" style="background:#febc2e"></span> Follow-Up
+          </div>
+          <div class="email-label-item">
+            <span class="email-label-dot" style="background:var(--secondary)"></span> Internal
+          </div>
+        </div>
+      </div>
+
+      <div class="email-main">
+        <div class="email-list-panel animate-on-scroll">
+          <div class="case-panel-header" style="margin-bottom:16px">
+            <div class="case-panel-title">&#9993; Priority Inbox</div>
+            <div class="case-panel-badge">Organized</div>
+          </div>
+
+          <div class="email-item priority">
+            <span class="email-star">&#9733;</span>
+            <div class="email-sender-avatar">VC</div>
+            <div class="email-meta">
+              <div class="email-from">Victor Chen — CEO, Nexus Labs</div>
+              <div class="email-subject">Q3 Partnership Proposal & Contract Review</div>
+            </div>
+            <div class="email-labels">
+              <span class="email-label label-urgent">URGENT</span>
+              <span class="email-label label-client">CLIENT</span>
+            </div>
+            <div class="email-time">10:23 AM</div>
+          </div>
+
+          <div class="email-item priority">
+            <span class="email-star">&#9733;</span>
+            <div class="email-sender-avatar">MK</div>
+            <div class="email-meta">
+              <div class="email-from">Maria Kovacs — Marketing Director</div>
+              <div class="email-subject">Campaign Assets Ready for Review</div>
+            </div>
+            <div class="email-labels">
+              <span class="email-label label-follow">FOLLOW-UP</span>
+            </div>
+            <div class="email-time">9:45 AM</div>
+          </div>
+
+          <div class="email-item read">
+            <span class="email-star">&#9734;</span>
+            <div class="email-sender-avatar">JL</div>
+            <div class="email-meta">
+              <div class="email-from">James Liu — Operations</div>
+              <div class="email-subject">Weekly Operations Report — June 2026</div>
+            </div>
+            <div class="email-labels">
+              <span class="email-label label-internal">INTERNAL</span>
+            </div>
+            <div class="email-time">Yesterday</div>
+          </div>
+
+          <div class="email-item read">
+            <span class="email-star">&#9734;</span>
+            <div class="email-sender-avatar">AT</div>
+            <div class="email-meta">
+              <div class="email-from">Amara Thompson — Investor Relations</div>
+              <div class="email-subject">Board Meeting Agenda & Pre-Reads</div>
+            </div>
+            <div class="email-labels">
+              <span class="email-label label-urgent">URGENT</span>
+            </div>
+            <div class="email-time">Yesterday</div>
+          </div>
+
+          <div class="before-after-grid" style="margin-top:16px">
+            <div class="before-after-card">
+              <div class="before-after-label before-label">&#128683; Before</div>
+              <div class="before-after-content">
+                <div class="ba-item">Unorganized inbox with 500+ unread emails</div>
+                <div class="ba-item">No labeling or priority system</div>
+                <div class="ba-item">Missed follow-ups and client delays</div>
+                <div class="ba-item">No calendar integration for meetings</div>
+              </div>
+            </div>
+            <div class="before-after-card after">
+              <div class="before-after-label after-label">&#9989; After</div>
+              <div class="before-after-content">
+                <div class="ba-item">Inbox Zero with organized folder structure</div>
+                <div class="ba-item">Priority labels: Urgent, Client, Follow-Up</div>
+                <div class="ba-item">Automated follow-up reminders system</div>
+                <div class="ba-item">Calendar-synced scheduling preview</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="email-calendar animate-on-scroll stagger-1">
+          <div class="cal-header">
+            <div class="cal-title">&#128197; Calendar Integration</div>
+            <div class="cal-nav">
+              <div class="cal-nav-btn">&#9664;</div>
+              <div class="cal-nav-btn">&#9654;</div>
+            </div>
+          </div>
+          <div class="cal-days">
+            <div class="cal-day">
+              <div class="cal-day-name">Mon</div>
+              <div class="cal-day-num">8</div>
+            </div>
+            <div class="cal-day has-meeting">
+              <div class="cal-day-name">Tue</div>
+              <div class="cal-day-num">9</div>
+              <div class="cal-day-dot"></div>
+            </div>
+            <div class="cal-day has-meeting">
+              <div class="cal-day-name">Wed</div>
+              <div class="cal-day-num">10</div>
+              <div class="cal-day-dot"></div>
+            </div>
+            <div class="cal-day active">
+              <div class="cal-day-name">Thu</div>
+              <div class="cal-day-num">11</div>
+              <div class="cal-day-dot"></div>
+            </div>
+            <div class="cal-day has-meeting">
+              <div class="cal-day-name">Fri</div>
+              <div class="cal-day-num">12</div>
+              <div class="cal-day-dot"></div>
+            </div>
+            <div class="cal-day">
+              <div class="cal-day-name">Sat</div>
+              <div class="cal-day-num">13</div>
+            </div>
+            <div class="cal-day">
+              <div class="cal-day-name">Sun</div>
+              <div class="cal-day-num">14</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">05</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 6: SOCIAL MEDIA MANAGEMENT -->
+<!-- ============================================ -->
+<section class="slide slide-social" id="social">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Case Study</div>
+      <div class="slide-title">Social Media Management</div>
+      <div class="slide-subtitle">Strategic content planning, multi-platform execution, and data-driven engagement optimization.</div>
+    </div>
+
+    <div class="social-layout">
+      <div class="social-left">
+        <div class="social-panel animate-on-scroll">
+          <div class="social-panel-header">
+            <div class="social-panel-title">&#128197; Content Calendar</div>
+            <div class="case-panel-badge">June 2026</div>
+          </div>
+          <div class="cal-grid">
+            <div class="cal-grid-day">1</div>
+            <div class="cal-grid-day has-post">2<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">3</div>
+            <div class="cal-grid-day has-post">4<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">5</div>
+            <div class="cal-grid-day">6</div>
+            <div class="cal-grid-day has-post">7<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">8</div>
+            <div class="cal-grid-day has-post">9<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">10</div>
+            <div class="cal-grid-day has-post">11<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">12</div>
+            <div class="cal-grid-day has-post">13<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">14</div>
+            <div class="cal-grid-day has-post">15<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">16</div>
+            <div class="cal-grid-day">17</div>
+            <div class="cal-grid-day has-post">18<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">19</div>
+            <div class="cal-grid-day has-post">20<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">21</div>
+            <div class="cal-grid-day has-post">22<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">23</div>
+            <div class="cal-grid-day has-post">24<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">25</div>
+            <div class="cal-grid-day has-post">26<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">27</div>
+            <div class="cal-grid-day has-post">28<div class="post-indicator"></div></div>
+            <div class="cal-grid-day">29</div>
+            <div class="cal-grid-day has-post">30<div class="post-indicator"></div></div>
+          </div>
+        </div>
+
+        <div class="social-panel animate-on-scroll stagger-1">
+          <div class="social-panel-header">
+            <div class="social-panel-title">&#128200; Engagement Analytics</div>
+            <div class="case-panel-badge">+32% Growth</div>
+          </div>
+          <div class="analytics-chart">
+            <div class="analytics-bar" style="height:35%" data-val="3.2K"></div>
+            <div class="analytics-bar" style="height:50%" data-val="4.5K"></div>
+            <div class="analytics-bar" style="height:42%" data-val="3.8K"></div>
+            <div class="analytics-bar" style="height:65%" data-val="5.9K"></div>
+            <div class="analytics-bar" style="height:55%" data-val="5.1K"></div>
+            <div class="analytics-bar" style="height:78%" data-val="7.2K"></div>
+            <div class="analytics-bar" style="height:85%" data-val="8.4K"></div>
+            <div class="analytics-bar" style="height:72%" data-val="6.8K"></div>
+            <div class="analytics-bar" style="height:90%" data-val="9.1K"></div>
+            <div class="analytics-bar" style="height:95%" data-val="9.8K"></div>
+            <div class="analytics-bar" style="height:88%" data-val="8.9K"></div>
+            <div class="analytics-bar" style="height:100%" data-val="10.2K"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--secondary);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:10px">
+            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-right">
+        <div class="social-panel animate-on-scroll">
+          <div class="social-panel-header">
+            <div class="social-panel-title">&#128248; Post Previews</div>
+            <div class="case-panel-badge">Scheduled</div>
+          </div>
+          <div class="post-preview-grid">
+            <div class="post-card">
+              <div class="post-image">&#128200;</div>
+              <div class="post-info">
+                <div class="post-platform">LinkedIn</div>
+                <div class="post-title">Q2 Growth Report Insights</div>
+                <div class="post-stats">
+                  <span class="post-stat">&#9829; 234</span>
+                  <span class="post-stat">&#128172; 45</span>
+                </div>
+              </div>
+            </div>
+            <div class="post-card">
+              <div class="post-image">&#128161;</div>
+              <div class="post-info">
+                <div class="post-platform">Instagram</div>
+                <div class="post-title">Behind the Scenes</div>
+                <div class="post-stats">
+                  <span class="post-stat">&#9829; 892</span>
+                  <span class="post-stat">&#128172; 67</span>
+                </div>
+              </div>
+            </div>
+            <div class="post-card">
+              <div class="post-image">&#128227;</div>
+              <div class="post-info">
+                <div class="post-platform">Facebook</div>
+                <div class="post-title">Product Launch Update</div>
+                <div class="post-stats">
+                  <span class="post-stat">&#9829; 456</span>
+                  <span class="post-stat">&#128172; 123</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-panel animate-on-scroll stagger-1">
+          <div class="social-panel-header">
+            <div class="social-panel-title">&#128202; Platform Performance</div>
+            <div class="case-panel-badge">All Channels</div>
+          </div>
+          <div class="platform-bars">
+            <div class="platform-bar-row">
+              <div class="platform-name">LinkedIn</div>
+              <div class="platform-track">
+                <div class="platform-fill" style="width:85%;background:linear-gradient(90deg,var(--accent),var(--primary))"></div>
+              </div>
+              <div class="platform-value">85%</div>
+            </div>
+            <div class="platform-bar-row">
+              <div class="platform-name">Instagram</div>
+              <div class="platform-track">
+                <div class="platform-fill" style="width:72%;background:linear-gradient(90deg,var(--secondary),var(--dark-accent))"></div>
+              </div>
+              <div class="platform-value">72%</div>
+            </div>
+            <div class="platform-bar-row">
+              <div class="platform-name">Twitter/X</div>
+              <div class="platform-track">
+                <div class="platform-fill" style="width:68%;background:linear-gradient(90deg,#febc2e,#d4a017)"></div>
+              </div>
+              <div class="platform-value">68%</div>
+            </div>
+            <div class="platform-bar-row">
+              <div class="platform-name">Facebook</div>
+              <div class="platform-track">
+                <div class="platform-fill" style="width:60%;background:linear-gradient(90deg,#28c840,#1e9630)"></div>
+              </div>
+              <div class="platform-value">60%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-panel animate-on-scroll stagger-2">
+          <div class="social-panel-header">
+            <div class="social-panel-title">&#127912; Content Pillars</div>
+            <div class="case-panel-badge">Strategy</div>
+          </div>
+          <div class="pillar-grid">
+            <div class="pillar-card">
+              <div class="pillar-icon">&#127891;</div>
+              <div class="pillar-name">Educational</div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">&#128188;</div>
+              <div class="pillar-name">Promotional</div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">&#128172;</div>
+              <div class="pillar-name">Engagement</div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">&#128161;</div>
+              <div class="pillar-name">Brand Awareness</div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">&#11088;</div>
+              <div class="pillar-name">Testimonials</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">06</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 7: CREATIVE DESIGN SUPPORT -->
+<!-- ============================================ -->
+<section class="slide slide-design" id="design">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Creative Work</div>
+      <div class="slide-title">Creative Design Support</div>
+      <div class="slide-subtitle">Premium visual content creation for social media, marketing collateral, presentations, and brand assets.</div>
+    </div>
+
+    <div class="design-gallery">
+      <div class="design-card animate-on-scroll stagger-1">
+        <div class="design-preview">
+          <div class="design-preview-bg"></div>
+          <div class="design-preview-content">
+            <div class="carousel-preview">
+              <div class="carousel-slide"></div>
+              <div class="carousel-slide active"></div>
+              <div class="carousel-slide"></div>
+            </div>
+          </div>
+        </div>
+        <div class="design-info">
+          <div class="design-category">Social Media</div>
+          <div class="design-title">LinkedIn Carousel Design</div>
+          <div class="design-desc">Multi-slide thought leadership carousels with consistent branding and high engagement rates.</div>
+        </div>
+      </div>
+
+      <div class="design-card animate-on-scroll stagger-2">
+        <div class="design-preview">
+          <div class="design-preview-bg"></div>
+          <div class="design-preview-content">
+            <div class="ig-post-preview">&#128247;</div>
+          </div>
+        </div>
+        <div class="design-info">
+          <div class="design-category">Social Media</div>
+          <div class="design-title">Instagram Post Design</div>
+          <div class="design-desc">Aesthetic feed posts with branded color palettes, typography, and visual storytelling.</div>
+        </div>
+      </div>
+
+      <div class="design-card animate-on-scroll stagger-3">
+        <div class="design-preview">
+          <div class="design-preview-bg"></div>
+          <div class="design-preview-content">
+            <div class="flyer-preview">
+              <div class="flyer-line" style="width:60%"></div>
+              <div class="flyer-line" style="width:80%"></div>
+              <div class="flyer-line" style="width:50%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="design-info">
+          <div class="design-category">Print</div>
+          <div class="design-title">Business Flyer</div>
+          <div class="design-desc">Professional print-ready flyers with compelling layouts and clear call-to-action design.</div>
+        </div>
+      </div>
+
+      <div class="design-card animate-on-scroll stagger-4">
+        <div class="design-preview">
+          <div class="design-preview-bg"></div>
+          <div class="design-preview-content">
+            <div class="banner-preview">BANNER</div>
+          </div>
+        </div>
+        <div class="design-info">
+          <div class="design-category">Digital</div>
+          <div class="design-title">Social Media Banner</div>
+          <div class="design-desc">Cover photos, headers, and banner graphics optimized for each platform's dimensions.</div>
+        </div>
+      </div>
+
+      <div class="design-card animate-on-scroll stagger-1">
+        <div class="design-preview">
+          <div class="design-preview-bg"></div>
+          <div class="design-preview-content">
+            <div class="ppt-preview">
+              <div class="ppt-line" style="width:70%"></div>
+              <div class="ppt-line" style="width:50%"></div>
+              <div class="ppt-line" style="width:60%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="design-info">
+          <div class="design-category">Presentation</div>
+          <div class="design-title">Presentation Slide Design</div>
+          <div class="design-desc">Investor pitch decks and executive presentations with premium slide layouts.</div>
+        </div>
+      </div>
+
+      <div class="design-card animate-on-scroll stagger-2">
+        <div class="design-preview">
+          <div class="design-preview-bg"></div>
+          <div class="design-preview-content">
+            <div class="pdf-preview"></div>
+          </div>
+        </div>
+        <div class="design-info">
+          <div class="design-category">Lead Gen</div>
+          <div class="design-title">Lead Magnet / PDF Cover</div>
+          <div class="design-desc">E-book covers, whitepaper designs, and downloadable resource visuals that convert.</div>
+        </div>
+      </div>
+
+      <div class="design-card animate-on-scroll stagger-3">
+        <div class="design-preview">
+          <div class="design-preview-bg"></div>
+          <div class="design-preview-content">
+            <div class="newsletter-preview">
+              <div class="news-header"></div>
+              <div class="news-line" style="width:90%"></div>
+              <div class="news-line" style="width:70%"></div>
+              <div class="news-line" style="width:80%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="design-info">
+          <div class="design-category">Email</div>
+          <div class="design-title">Email Newsletter Graphic</div>
+          <div class="design-desc">Branded newsletter headers, section dividers, and CTA buttons for email campaigns.</div>
+        </div>
+      </div>
+
+      <div class="design-card animate-on-scroll stagger-4">
+        <div class="design-preview">
+          <div class="design-preview-bg"></div>
+          <div class="design-preview-content">
+            <div class="moodboard-preview">
+              <div class="mood-swatch" style="background:#6A0506"></div>
+              <div class="mood-swatch" style="background:#AE0102"></div>
+              <div class="mood-swatch" style="background:#DAC4B0"></div>
+              <div class="mood-swatch" style="background:#A28069"></div>
+            </div>
+          </div>
+        </div>
+        <div class="design-info">
+          <div class="design-category">Branding</div>
+          <div class="design-title">Brand Moodboard</div>
+          <div class="design-desc">Color palette curation, typography pairing, and visual direction boards for brand identity.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="design-caps animate-on-scroll">
+      <div class="design-cap-item">
+        <div class="design-cap-icon">&#128248;</div>
+        <div class="design-cap-text">Social Media Graphics</div>
+      </div>
+      <div class="design-cap-item">
+        <div class="design-cap-icon">&#128196;</div>
+        <div class="design-cap-text">Canva Templates</div>
+      </div>
+      <div class="design-cap-item">
+        <div class="design-cap-icon">&#127912;</div>
+        <div class="design-cap-text">Brand Kits</div>
+      </div>
+      <div class="design-cap-item">
+        <div class="design-cap-icon">&#128208;</div>
+        <div class="design-cap-text">Presentations</div>
+      </div>
+      <div class="design-cap-item">
+        <div class="design-cap-icon">&#128227;</div>
+        <div class="design-cap-text">Marketing Banners</div>
+      </div>
+      <div class="design-cap-item">
+        <div class="design-cap-icon">&#128214;</div>
+        <div class="design-cap-text">PDF Lead Magnets</div>
+      </div>
+      <div class="design-cap-item">
+        <div class="design-cap-icon">&#128260;</div>
+        <div class="design-cap-text">Content Repurposing</div>
+      </div>
+      <div class="design-cap-item">
+        <div class="design-cap-icon">&#128197;</div>
+        <div class="design-cap-text">Visual Content Calendars</div>
+      </div>
+    </div>
+
+    <div class="design-ba animate-on-scroll">
+      <div class="design-ba-card">
+        <div class="design-ba-label before">&#128683; Before: Basic Layout</div>
+        <div class="design-ba-mockup">
+          <div class="ba-mock-header"></div>
+          <div class="ba-mock-body">
+            <div class="ba-mock-img"></div>
+            <div class="ba-mock-text">
+              <div class="ba-mock-line"></div>
+              <div class="ba-mock-line short"></div>
+              <div class="ba-mock-line short"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="design-ba-card after">
+        <div class="design-ba-label after">&#9989; After: Premium Design</div>
+        <div class="design-ba-mockup">
+          <div class="ba-mock-header"></div>
+          <div class="ba-mock-body">
+            <div class="ba-mock-img"></div>
+            <div class="ba-mock-text">
+              <div class="ba-mock-line"></div>
+              <div class="ba-mock-line short"></div>
+              <div class="ba-mock-line short"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">07</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 8: BUSINESS OPERATIONS -->
+<!-- ============================================ -->
+<section class="slide slide-ops" id="ops">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Operations</div>
+      <div class="slide-title">Business Operations Management</div>
+      <div class="slide-subtitle">End-to-end workflow orchestration, project tracking, and operational excellence dashboards.</div>
+    </div>
+
+    <div class="ops-layout">
+      <div class="ops-panel animate-on-scroll">
+        <div class="ops-panel-header">
+          <div class="ops-panel-title">&#128203; Project Board</div>
+          <div class="case-panel-badge">Kanban</div>
+        </div>
+        <div class="kanban-columns">
+          <div class="kanban-col">
+            <div class="kanban-col-header">
+              <div class="kanban-col-dot todo"></div>
+              <div class="kanban-col-name">To Do</div>
+              <div class="kanban-col-count">4</div>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-title">Q3 Budget Planning</div>
+              <div class="kanban-card-meta">
+                <span class="kanban-tag kanban-tag-high">HIGH</span>
+                <div class="kanban-avatars">
+                  <div class="kanban-avatar">A</div>
+                </div>
+              </div>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-title">Vendor Onboarding</div>
+              <div class="kanban-card-meta">
+                <span class="kanban-tag kanban-tag-medium">MED</span>
+                <div class="kanban-avatars">
+                  <div class="kanban-avatar">B</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="kanban-col">
+            <div class="kanban-col-header">
+              <div class="kanban-col-dot progress"></div>
+              <div class="kanban-col-name">In Progress</div>
+              <div class="kanban-col-count">3</div>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-title">CRM Data Migration</div>
+              <div class="kanban-card-meta">
+                <span class="kanban-tag kanban-tag-high">HIGH</span>
+                <div class="kanban-avatars">
+                  <div class="kanban-avatar">A</div>
+                  <div class="kanban-avatar">C</div>
+                </div>
+              </div>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-title">Email Automation Setup</div>
+              <div class="kanban-card-meta">
+                <span class="kanban-tag kanban-tag-medium">MED</span>
+                <div class="kanban-avatars">
+                  <div class="kanban-avatar">A</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="kanban-col">
+            <div class="kanban-col-header">
+              <div class="kanban-col-dot done"></div>
+              <div class="kanban-col-name">Done</div>
+              <div class="kanban-col-count">6</div>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-title">Social Calendar Q2</div>
+              <div class="kanban-card-meta">
+                <span class="kanban-tag kanban-tag-low">LOW</span>
+                <div class="kanban-avatars">
+                  <div class="kanban-avatar">A</div>
+                </div>
+              </div>
+            </div>
+            <div class="kanban-card">
+              <div class="kanban-card-title">Lead Gen Campaign</div>
+              <div class="kanban-card-meta">
+                <span class="kanban-tag kanban-tag-low">LOW</span>
+                <div class="kanban-avatars">
+                  <div class="kanban-avatar">A</div>
+                  <div class="kanban-avatar">D</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="process-stages">
+          <div class="process-stage">
+            <div class="process-stage-num">1</div>
+            <div class="process-stage-name">Request Received</div>
+          </div>
+          <div class="process-stage">
+            <div class="process-stage-num">2</div>
+            <div class="process-stage-name">Task Organized</div>
+          </div>
+          <div class="process-stage">
+            <div class="process-stage-num">3</div>
+            <div class="process-stage-name">Priority Assigned</div>
+          </div>
+          <div class="process-stage">
+            <div class="process-stage-num">4</div>
+            <div class="process-stage-name">Execution Started</div>
+          </div>
+          <div class="process-stage">
+            <div class="process-stage-num">5</div>
+            <div class="process-stage-name">Quality Checked</div>
+          </div>
+          <div class="process-stage">
+            <div class="process-stage-num">6</div>
+            <div class="process-stage-name">Delivered</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ops-panel animate-on-scroll stagger-1">
+        <div class="ops-panel-header">
+          <div class="ops-panel-title">&#128200; Reporting Dashboard</div>
+          <div class="case-panel-badge">Weekly</div>
+        </div>
+        <div class="report-metric">
+          <div class="report-metric-icon">&#128200;</div>
+          <div class="report-metric-info">
+            <div class="report-metric-label">Task Completion Rate</div>
+            <div class="report-metric-value">94.2%</div>
+          </div>
+          <div class="report-metric-change up">+5.3%</div>
+        </div>
+        <div class="report-metric">
+          <div class="report-metric-icon">&#9201;</div>
+          <div class="report-metric-info">
+            <div class="report-metric-label">Avg Response Time</div>
+            <div class="report-metric-value">2.4 hrs</div>
+          </div>
+          <div class="report-metric-change up">-12%</div>
+        </div>
+        <div class="report-metric">
+          <div class="report-metric-icon">&#128221;</div>
+          <div class="report-metric-info">
+            <div class="report-metric-label">Projects Delivered</div>
+            <div class="report-metric-value">18</div>
+          </div>
+          <div class="report-metric-change up">+3</div>
+        </div>
+        <div class="report-metric">
+          <div class="report-metric-icon">&#128101;</div>
+          <div class="report-metric-info">
+            <div class="report-metric-label">Client Satisfaction</div>
+            <div class="report-metric-value">4.9/5.0</div>
+          </div>
+          <div class="report-metric-change up">+0.2</div>
+        </div>
+      </div>
+
+      <div class="ops-panel animate-on-scroll stagger-2">
+        <div class="ops-panel-header">
+          <div class="ops-panel-title">&#9881; Automation Workflow</div>
+          <div class="case-panel-badge">Active</div>
+        </div>
+        <div class="flow-container">
+          <div class="flow-step">
+            <div class="flow-node">
+              <div class="flow-node-icon">&#9993;</div>
+              <div class="flow-node-text">Email Received</div>
+            </div>
+          </div>
+          <div class="flow-arrow">&#9660;</div>
+          <div class="flow-step">
+            <div class="flow-node">
+              <div class="flow-node-icon">&#128269;</div>
+              <div class="flow-node-text">Auto-Categorize</div>
+            </div>
+          </div>
+          <div class="flow-arrow">&#9660;</div>
+          <div class="flow-step">
+            <div class="flow-node">
+              <div class="flow-node-icon">&#128172;</div>
+              <div class="flow-node-text">Draft Response</div>
+            </div>
+          </div>
+          <div class="flow-arrow">&#9660;</div>
+          <div class="flow-step">
+            <div class="flow-node">
+              <div class="flow-node-icon">&#128203;</div>
+              <div class="flow-node-text">Update CRM</div>
+            </div>
+          </div>
+          <div class="flow-arrow">&#9660;</div>
+          <div class="flow-step">
+            <div class="flow-node">
+              <div class="flow-node-icon">&#128227;</div>
+              <div class="flow-node-text">Notify Team</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">08</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 9: TOOLS & SOFTWARE -->
+<!-- ============================================ -->
+<section class="slide slide-tools" id="tools">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Tech Stack</div>
+      <div class="slide-title">Tools & Software</div>
+      <div class="slide-subtitle">A curated ecosystem of professional tools powering efficient, scalable, and high-quality delivery.</div>
+    </div>
+
+    <div class="tools-category-grid">
+      <div class="tools-category animate-on-scroll stagger-1">
+        <div class="tools-cat-header">
+          <div class="tools-cat-icon">&#128196;</div>
+          <div>
+            <div class="tools-cat-title">Admin & Documents</div>
+            <div class="tools-cat-sub">Productivity & documentation</div>
+          </div>
+        </div>
+        <div class="tool-list">
+          <div class="tool-item">
+            <div class="tool-item-icon">G</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Google Workspace</div>
+              <div class="tool-item-use">Docs, Sheets, Drive, Calendar</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">M</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Microsoft Office</div>
+              <div class="tool-item-use">Word, Excel, PowerPoint</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-category animate-on-scroll stagger-2">
+        <div class="tools-cat-header">
+          <div class="tools-cat-icon">&#128203;</div>
+          <div>
+            <div class="tools-cat-title">Project Management</div>
+            <div class="tools-cat-sub">Task tracking & collaboration</div>
+          </div>
+        </div>
+        <div class="tool-list">
+          <div class="tool-item">
+            <div class="tool-item-icon">CU</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">ClickUp</div>
+              <div class="tool-item-use">All-in-one project management</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">T</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Trello</div>
+              <div class="tool-item-use">Kanban boards & workflows</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">A</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Asana</div>
+              <div class="tool-item-use">Team task coordination</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-category animate-on-scroll stagger-3">
+        <div class="tools-cat-header">
+          <div class="tools-cat-icon">&#127912;</div>
+          <div>
+            <div class="tools-cat-title">Design</div>
+            <div class="tools-cat-sub">Visual content creation</div>
+          </div>
+        </div>
+        <div class="tool-list">
+          <div class="tool-item">
+            <div class="tool-item-icon">C</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Canva</div>
+              <div class="tool-item-use">Social graphics, presentations</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">P</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">PowerPoint</div>
+              <div class="tool-item-use">Executive slide decks</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-category animate-on-scroll stagger-1">
+        <div class="tools-cat-header">
+          <div class="tools-cat-icon">&#128227;</div>
+          <div>
+            <div class="tools-cat-title">Marketing</div>
+            <div class="tools-cat-sub">Social & outreach tools</div>
+          </div>
+        </div>
+        <div class="tool-list">
+          <div class="tool-item">
+            <div class="tool-item-icon">MB</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Meta Business Suite</div>
+              <div class="tool-item-use">Facebook & Instagram scheduling</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">in</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">LinkedIn</div>
+              <div class="tool-item-use">Professional networking & leads</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">B</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Buffer</div>
+              <div class="tool-item-use">Multi-platform content queue</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-category animate-on-scroll stagger-2">
+        <div class="tools-cat-header">
+          <div class="tools-cat-icon">&#128202;</div>
+          <div>
+            <div class="tools-cat-title">CRM & Data</div>
+            <div class="tools-cat-sub">Database & pipeline management</div>
+          </div>
+        </div>
+        <div class="tool-list">
+          <div class="tool-item">
+            <div class="tool-item-icon">H</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">HubSpot</div>
+              <div class="tool-item-use">CRM, pipeline & email tracking</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">GS</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Google Sheets</div>
+              <div class="tool-item-use">Data organization & analysis</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">E</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Excel</div>
+              <div class="tool-item-use">Advanced data processing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-category animate-on-scroll stagger-3">
+        <div class="tools-cat-header">
+          <div class="tools-cat-icon">&#128172;</div>
+          <div>
+            <div class="tools-cat-title">Communication</div>
+            <div class="tools-cat-sub">Client & team coordination</div>
+          </div>
+        </div>
+        <div class="tool-list">
+          <div class="tool-item">
+            <div class="tool-item-icon">GM</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Gmail</div>
+              <div class="tool-item-use">Inbox management & filtering</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">Z</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Zoom</div>
+              <div class="tool-item-use">Video meetings & recordings</div>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-item-icon">SL</div>
+            <div class="tool-item-info">
+              <div class="tool-item-name">Slack</div>
+              <div class="tool-item-use">Team messaging & alerts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">09</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 10: RESULTS DASHBOARD -->
+<!-- ============================================ -->
+<section class="slide slide-results" id="results">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Track Record</div>
+      <div class="slide-title">Results Dashboard</div>
+      <div class="slide-subtitle">Quantifiable business impact across lead generation, operations, and client support metrics.</div>
+    </div>
+
+    <div class="results-hero-grid">
+      <div class="results-mega-card animate-on-scroll stagger-1">
+        <div class="results-mega-number">500<span>+</span></div>
+        <div class="results-mega-label">Leads Generated</div>
+        <div class="results-mega-sub">Qualified prospects with verified contact data</div>
+      </div>
+      <div class="results-mega-card animate-on-scroll stagger-2">
+        <div class="results-mega-number">1000<span>+</span></div>
+        <div class="results-mega-label">Tasks Managed</div>
+        <div class="results-mega-sub">Operations, admin, research, creative</div>
+      </div>
+      <div class="results-mega-card animate-on-scroll stagger-3">
+        <div class="results-mega-number">98<span>%</span></div>
+        <div class="results-mega-label">Accuracy Rate</div>
+        <div class="results-mega-sub">Data precision, zero-error delivery</div>
+      </div>
+      <div class="results-mega-card animate-on-scroll stagger-4">
+        <div class="results-mega-number">80<span>%</span></div>
+        <div class="results-mega-label">Inbox Improvement</div>
+        <div class="results-mega-sub">Clutter reduction & response optimization</div>
+      </div>
+    </div>
+
+    <div class="results-charts-grid">
+      <div class="results-chart-panel animate-on-scroll">
+        <div class="chart-panel-header">
+          <div class="chart-panel-title">&#128200; Task Completion Trend</div>
+          <div class="case-panel-badge">6 Months</div>
+        </div>
+        <div class="mini-chart" style="height:140px">
+          <div class="mini-bar" style="height:50%" data-val="85%"></div>
+          <div class="mini-bar" style="height:65%" data-val="88%"></div>
+          <div class="mini-bar" style="height:55%" data-val="86%"></div>
+          <div class="mini-bar" style="height:75%" data-val="91%"></div>
+          <div class="mini-bar" style="height:80%" data-val="93%"></div>
+          <div class="mini-bar" style="height:90%" data-val="96%"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--secondary);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:10px">
+          <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+        </div>
+      </div>
+
+      <div class="results-chart-panel animate-on-scroll stagger-1">
+        <div class="chart-panel-header">
+          <div class="chart-panel-title">&#128228; Lead Generation Funnel</div>
+          <div class="case-panel-badge">Pipeline</div>
+        </div>
+        <div class="funnel-chart">
+          <div class="funnel-stage funnel-stage-1">500 Prospects</div>
+          <div class="funnel-stage funnel-stage-2">380 Contacted</div>
+          <div class="funnel-stage funnel-stage-3">245 Qualified</div>
+          <div class="funnel-stage funnel-stage-4">89 Converted</div>
+        </div>
+        <div class="funnel-labels">
+          <div class="funnel-label">Top</div>
+          <div class="funnel-label">Middle</div>
+          <div class="funnel-label">Bottom</div>
+          <div class="funnel-label">Close</div>
+        </div>
+      </div>
+
+      <div class="results-chart-panel animate-on-scroll stagger-2">
+        <div class="chart-panel-header">
+          <div class="chart-panel-title">&#128101; Client Support Metrics</div>
+          <div class="case-panel-badge">Performance</div>
+        </div>
+        <div class="support-metrics">
+          <div class="support-metric">
+            <div class="support-metric-label">Response Time</div>
+            <div class="support-metric-bar">
+              <div class="support-metric-fill" style="width:92%;background:linear-gradient(90deg,var(--accent),var(--primary))">2.4h</div>
+            </div>
+          </div>
+          <div class="support-metric">
+            <div class="support-metric-label">Resolution</div>
+            <div class="support-metric-bar">
+              <div class="support-metric-fill" style="width:96%;background:linear-gradient(90deg,#28c840,#1e9630)">96%</div>
+            </div>
+          </div>
+          <div class="support-metric">
+            <div class="support-metric-label">Satisfaction</div>
+            <div class="support-metric-bar">
+              <div class="support-metric-fill" style="width:98%;background:linear-gradient(90deg,var(--secondary),var(--dark-accent))">4.9/5</div>
+            </div>
+          </div>
+          <div class="support-metric">
+            <div class="support-metric-label">Uptime</div>
+            <div class="support-metric-bar">
+              <div class="support-metric-fill" style="width:99%;background:linear-gradient(90deg,#febc2e,#d4a017)">99.8%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">10</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 11: WHY WORK WITH ME -->
+<!-- ============================================ -->
+<section class="slide slide-why" id="why">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Value Proposition</div>
+      <div class="slide-title">Why Work With Me</div>
+      <div class="slide-subtitle">Executive-level support that goes beyond task completion to drive real business outcomes.</div>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card animate-on-scroll stagger-1">
+        <div class="why-icon">&#128170;</div>
+        <div class="why-title">Reliable</div>
+        <div class="why-desc">Consistent delivery you can count on. Every task, every deadline, every expectation met without exception.</div>
+      </div>
+      <div class="why-card animate-on-scroll stagger-2">
+        <div class="why-icon">&#128203;</div>
+        <div class="why-title">Organized</div>
+        <div class="why-desc">Systems-driven approach to complex workflows. Nothing falls through the cracks with structured processes.</div>
+      </div>
+      <div class="why-card animate-on-scroll stagger-3">
+        <div class="why-icon">&#128269;</div>
+        <div class="why-title">Detail-Oriented</div>
+        <div class="why-desc">Precision in every output. Data accuracy, formatting consistency, and quality control at every stage.</div>
+      </div>
+      <div class="why-card animate-on-scroll stagger-4">
+        <div class="why-icon">&#128161;</div>
+        <div class="why-title">Proactive</div>
+        <div class="why-desc">Anticipating needs before they arise. Identifying gaps, suggesting improvements, and driving initiatives forward.</div>
+      </div>
+    </div>
+
+    <div class="comparison-table-wrap animate-on-scroll">
+      <table class="comparison-table">
+        <tr>
+          <th>Capability</th>
+          <th style="text-align:center">Basic VA</th>
+          <th style="text-align:center" class="highlight">Executive VA Support</th>
+        </tr>
+        <tr>
+          <td>Strategic Input</td>
+          <td style="text-align:center"><span class="cross">&#10007;</span></td>
+          <td style="text-align:center" class="highlight"><span class="check">&#10003;</span></td>
+        </tr>
+        <tr>
+          <td>Multi-Service Integration</td>
+          <td style="text-align:center"><span class="cross">&#10007;</span></td>
+          <td style="text-align:center" class="highlight"><span class="check">&#10003;</span></td>
+        </tr>
+        <tr>
+          <td>Quality Control Systems</td>
+          <td style="text-align:center"><span class="cross">&#10007;</span></td>
+          <td style="text-align:center" class="highlight"><span class="check">&#10003;</span></td>
+        </tr>
+        <tr>
+          <td>Proactive Communication</td>
+          <td style="text-align:center"><span class="cross">&#10007;</span></td>
+          <td style="text-align:center" class="highlight"><span class="check">&#10003;</span></td>
+        </tr>
+        <tr>
+          <td>Creative & Design Support</td>
+          <td style="text-align:center"><span class="cross">&#10007;</span></td>
+          <td style="text-align:center" class="highlight"><span class="check">&#10003;</span></td>
+        </tr>
+        <tr>
+          <td>Workflow Automation</td>
+          <td style="text-align:center"><span class="cross">&#10007;</span></td>
+          <td style="text-align:center" class="highlight"><span class="check">&#10003;</span></td>
+        </tr>
+        <tr>
+          <td>Weekly Reporting & KPIs</td>
+          <td style="text-align:center"><span class="cross">&#10007;</span></td>
+          <td style="text-align:center" class="highlight"><span class="check">&#10003;</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="slide-number">11</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 12: HOW I WORK -->
+<!-- ============================================ -->
+<section class="slide slide-process" id="process">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Process</div>
+      <div class="slide-title">How I Work</div>
+      <div class="slide-subtitle">A proven five-step framework designed for seamless integration, transparent execution, and continuous improvement.</div>
+    </div>
+
+    <div class="process-timeline">
+      <div class="process-step-card animate-on-scroll stagger-1">
+        <div class="process-step-num">1</div>
+        <div class="process-step-title">Understand Your Needs</div>
+        <div class="process-step-desc">Deep-dive discovery into your business goals, pain points, and operational gaps.</div>
+      </div>
+      <div class="process-arrow">&#10142;</div>
+      <div class="process-step-card animate-on-scroll stagger-2">
+        <div class="process-step-num">2</div>
+        <div class="process-step-title">Organize Tasks & Priorities</div>
+        <div class="process-step-desc">Structure workflows, set deadlines, and establish clear communication protocols.</div>
+      </div>
+      <div class="process-arrow">&#10142;</div>
+      <div class="process-step-card animate-on-scroll stagger-3">
+        <div class="process-step-num">3</div>
+        <div class="process-step-title">Execute With Accuracy</div>
+        <div class="process-step-desc">Deliver high-quality work with attention to detail and deadline adherence.</div>
+      </div>
+      <div class="process-arrow">&#10142;</div>
+      <div class="process-step-card animate-on-scroll stagger-4">
+        <div class="process-step-num">4</div>
+        <div class="process-step-title">Share Updates & Reports</div>
+        <div class="process-step-desc">Provide transparent progress tracking, weekly summaries, and performance dashboards.</div>
+      </div>
+      <div class="process-arrow">&#10142;</div>
+      <div class="process-step-card animate-on-scroll stagger-5">
+        <div class="process-step-num">5</div>
+        <div class="process-step-title">Improve Workflow Over Time</div>
+        <div class="process-step-desc">Continuously optimize processes, suggest automation, and scale support as you grow.</div>
+      </div>
+    </div>
+
+    <div class="process-mini-cards">
+      <div class="process-mini-card animate-on-scroll stagger-1">
+        <div class="process-mini-icon">&#128172;</div>
+        <div class="process-mini-title">Communication</div>
+        <div class="process-mini-desc">Daily check-ins, Slack updates, and email summaries to keep you informed.</div>
+      </div>
+      <div class="process-mini-card animate-on-scroll stagger-2">
+        <div class="process-mini-icon">&#128203;</div>
+        <div class="process-mini-title">Task Tracking</div>
+        <div class="process-mini-desc">ClickUp/Trello boards with real-time status updates and priority flags.</div>
+      </div>
+      <div class="process-mini-card animate-on-scroll stagger-3">
+        <div class="process-mini-icon">&#128269;</div>
+        <div class="process-mini-title">Quality Control</div>
+        <div class="process-mini-desc">Double-check protocols, formatting standards, and accuracy verification.</div>
+      </div>
+      <div class="process-mini-card animate-on-scroll stagger-4">
+        <div class="process-mini-icon">&#128200;</div>
+        <div class="process-mini-title">Weekly Reporting</div>
+        <div class="process-mini-desc">KPI dashboards, completed tasks, and upcoming priorities every Friday.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">12</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 13: SERVICE PACKAGES -->
+<!-- ============================================ -->
+<section class="slide slide-packages" id="packages">
+  <div class="brand-mark">Arisha Saleem</div>
+  <div class="slide-inner">
+    <div class="slide-header animate-on-scroll">
+      <div class="slide-label">Packages</div>
+      <div class="slide-title">Service Packages</div>
+      <div class="slide-subtitle">Flexible support tiers designed to scale with your business needs. All packages include a custom quote.</div>
+    </div>
+
+    <div class="packages-grid">
+      <div class="package-card animate-on-scroll stagger-1">
+        <div class="package-badge">Starter</div>
+        <div class="package-name">Starter Support</div>
+        <div class="package-desc">Best for small admin tasks, inbox help, research, and data entry.</div>
+        <div class="package-features">
+          <div class="package-feature">Email inbox management</div>
+          <div class="package-feature">Calendar scheduling</div>
+          <div class="package-feature">Data entry & research</div>
+          <div class="package-feature">Travel & booking coordination</div>
+          <div class="package-feature">Document formatting</div>
+        </div>
+        <div class="package-cta">Get Custom Quote</div>
+        <div class="package-price">Starting package for solopreneurs</div>
+      </div>
+
+      <div class="package-card featured animate-on-scroll stagger-2">
+        <div class="package-badge">Most Popular</div>
+        <div class="package-name">Growth Support</div>
+        <div class="package-desc">Best for lead generation, social media, CRM updates, and weekly operations.</div>
+        <div class="package-features">
+          <div class="package-feature">Everything in Starter +</div>
+          <div class="package-feature">Lead generation & research</div>
+          <div class="package-feature">Social media management</div>
+          <div class="package-feature">CRM updates & pipeline</div>
+          <div class="package-feature">Weekly ops reporting</div>
+          <div class="package-feature">Basic graphic design</div>
+        </div>
+        <div class="package-cta">Get Custom Quote</div>
+        <div class="package-price">Ideal for growing businesses</div>
+      </div>
+
+      <div class="package-card animate-on-scroll stagger-3">
+        <div class="package-badge">Premium</div>
+        <div class="package-name">Executive Support</div>
+        <div class="package-desc">Best for business owners needing full admin, operations, communication, research, and creative support.</div>
+        <div class="package-features">
+          <div class="package-feature">Everything in Growth +</div>
+          <div class="package-feature">Full business operations</div>
+          <div class="package-feature">Workflow automation</div>
+          <div class="package-feature">Advanced graphic design</div>
+          <div class="package-feature">SOP documentation</div>
+          <div class="package-feature">Priority response & support</div>
+        </div>
+        <div class="package-cta">Get Custom Quote</div>
+        <div class="package-price">Full-service executive partnership</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">13</div>
+</section>
+
+<!-- ============================================ -->
+<!-- SLIDE 14: CONTACT / CTA -->
+<!-- ============================================ -->
+<section class="slide slide-contact" id="contact">
+  <div class="contact-glass animate-on-scroll">
+    <div class="contact-glow"></div>
+    <div class="contact-tag">
+      <div class="hero-tag-dot"></div>
+      Available for Partnership
+    </div>
+    <div class="contact-title">Let's Work<br>Together</div>
+    <div class="contact-subtitle">Premium virtual assistance for business owners who need organized, reliable, and proactive support.</div>
+    <div class="contact-cta-row">
+      <a href="mailto:arisha.saleem@email.com" class="contact-cta-primary">&#9993; Start a Project</a>
+      <a href="#" class="contact-cta-secondary">&#128196; Request Portfolio PDF</a>
+    </div>
+    <div class="contact-details">
+      <div class="contact-detail">
+        <div class="contact-detail-icon">&#9993;</div>
+        <span>arisha.saleem@email.com</span>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">&#128222;</div>
+        <span>+1 (555) 000-0000</span>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">in</div>
+        <span>/in/arishasaleem</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">14</div>
+</section>
+
+<!-- ============================================ -->
+<!-- DISCLAIMER -->
+<!-- ============================================ -->
+<div class="disclaimer">
+  <div class="disclaimer-text">
+    Some visuals shown are sample/demo mockups created to represent workflow style, service capabilities, and portfolio presentation. Client-sensitive information is not displayed for privacy. All metrics and data shown are representative of typical project outcomes and may vary based on individual client needs and industry context.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================ -->
+<script>
+// Sticky Nav Scroll Effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Scroll Animation Observer
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+  observer.observe(el);
+});
+
+// Smooth Scroll for Nav Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// KPI Counter Animation
+const kpiNumbers = document.querySelectorAll('.kpi-number, .results-mega-number, .case-kpi-mini .val, .float-kpi .num');
+const kpiObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const text = el.textContent;
+      const numMatch = text.match(/[\d.]+/);
+      if (numMatch) {
+        const targetNum = parseFloat(numMatch[0]);
+        const suffix = text.replace(/[\d.]+/, '');
+        let current = 0;
+        const increment = targetNum / 40;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= targetNum) {
+            current = targetNum;
+            clearInterval(timer);
+          }
+          el.textContent = Math.floor(current) + suffix;
+        }, 30);
+      }
+      kpiObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+kpiNumbers.forEach(el => kpiObserver.observe(el));
+
+// Progress Ring Animation
+const progressRings = document.querySelectorAll('.progress-ring-fill');
+const ringObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const circle = entry.target;
+      const radius = circle.r.baseVal.value;
+      const circumference = 2 * Math.PI * radius;
+      const offset = circumference - (parseFloat(circle.getAttribute('stroke-dashoffset')) / 314.16) * circumference;
+      circle.style.strokeDasharray = circumference;
+      circle.style.strokeDashoffset = circumference;
+      setTimeout(() => {
+        circle.style.strokeDashoffset = parseFloat(circle.getAttribute('stroke-dashoffset'));
+      }, 100);
+      ringObserver.unobserve(circle);
+    }
+  });
+}, { threshold: 0.5 });
+
+progressRings.forEach(el => ringObserver.observe(el));
+
+// Platform Bar Animation
+const platformFills = document.querySelectorAll('.platform-fill');
+const platformObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const fill = entry.target;
+      const width = fill.style.width;
+      fill.style.width = '0%';
+      setTimeout(() => {
+        fill.style.width = width;
+      }, 100);
+      platformObserver.unobserve(fill);
+    }
+  });
+}, { threshold: 0.5 });
+
+platformFills.forEach(el => platformObserver.observe(el));
+
+// Support Metric Bar Animation
+const supportFills = document.querySelectorAll('.support-metric-fill');
+const supportObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const fill = entry.target;
+      const width = fill.style.width;
+      fill.style.width = '0%';
+      setTimeout(() => {
+        fill.style.width = width;
+      }, 100);
+      supportObserver.unobserve(fill);
+    }
+  });
+}, { threshold: 0.5 });
+
+supportFills.forEach(el => supportObserver.observe(el));
+
+// Parallax Effect for Floating KPIs
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  document.querySelectorAll('.float-kpi').forEach((el, i) => {
+    const speed = 0.5 + (i * 0.1);
+    el.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
+  });
+});
+
+// Ecosystem Node Hover Effect
+const ecoNodes = document.querySelectorAll('.eco-node');
+ecoNodes.forEach(node => {
+  node.addEventListener('mouseenter', () => {
+    document.querySelector('.eco-center').style.transform = 'scale(1.05)';
+    document.querySelector('.eco-center').style.boxShadow = '0 0 120px rgba(174,1,2,0.3)';
+  });
+  node.addEventListener('mouseleave', () => {
+    document.querySelector('.eco-center').style.transform = 'scale(1)';
+    document.querySelector('.eco-center').style.boxShadow = '0 0 100px rgba(174,1,2,0.2)';
+  });
+});
+</script>
+
+</body>
+</html>
