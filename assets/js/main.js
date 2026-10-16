@@ -128,7 +128,7 @@
           Number(p.price).toLocaleString("en-US") + '</span><span class="price-unit">' + esc(p.unit) + "</span></p>" +
         '<p class="price-includes">' + esc(p.includesLabel) + "</p>" +
         '<ul class="price-features">' + p.features.map(function (f) { return "<li>" + icon("i-check") + "<span>" + esc(f) + "</span></li>"; }).join("") + "</ul>" +
-        '<a class="btn ' + (p.featured ? "btn-pink" : "btn-plum") + '" href="' + esc(links.booking) + '" target="_blank" rel="noopener">' + esc(p.cta) + " " + icon("i-arrow") + "</a>" +
+        '<a class="btn ' + (p.featured ? "btn-plum" : "btn-pink") + '" href="' + esc(links.booking) + '" target="_blank" rel="noopener">' + esc(p.cta) + " " + icon("i-arrow") + "</a>" +
         "</article>";
     }).join("");
   }
@@ -175,7 +175,17 @@
     sync();
   }
 
-  /* ---------- Headline split ---------- */
+  /* ---------- Motion mode ----------
+   * When GSAP + ScrollTrigger are loaded and the visitor allows motion,
+   * assets/js/scenes.js runs the scroll-driven scenes. Everything below still
+   * works without it (simpler, time-based fallbacks), so content is never lost.
+   */
+  var scenesOn = !!(window.gsap && window.ScrollTrigger) && !reduceMotion.matches;
+  document.documentElement.classList.toggle("scenes-on", scenesOn);
+  var root = document.documentElement;
+  var UI = window.AvenzaUI = {};
+
+  /* ---------- Headline split (masked word reveal) ---------- */
   $$("[data-split]").forEach(function (el) {
     var i = 0;
     var split = function (node) {
@@ -194,29 +204,38 @@
       });
     };
     split(el);
-    requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add("is-split-in"); }); });
+    el.classList.add("split-ready");
+    var show = function () { el.classList.add("is-split-in"); };
+    if (reduceMotion.matches || el.closest(".hero")) {
+      requestAnimationFrame(function () { requestAnimationFrame(show); });
+    } else {
+      onceVisible(el, show, 0.2);
+    }
   });
 
   /* ---------- Scroll reveals ---------- */
   var revealEls = $$("[data-reveal]");
   if (reduceMotion.matches || !("IntersectionObserver" in window)) {
     revealEls.forEach(function (el) { el.classList.add("is-in"); });
+    $$(".split-ready").forEach(function (el) { el.classList.add("is-split-in"); });
   } else {
     var rio = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); rio.unobserve(en.target); } });
     }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     revealEls.forEach(function (el) { rio.observe(el); });
-    // Fallback for fast scrolling: anything already scrolled into or past view is shown.
+    // Fast-scroll safety net: anything already scrolled into or past view is shown.
     var pending = false;
     window.addEventListener("scroll", function () {
       if (pending) return;
       pending = true;
       requestAnimationFrame(function () {
         pending = false;
+        var limit = window.innerHeight * 0.94;
         revealEls.forEach(function (el) {
-          if (!el.classList.contains("is-in") && el.getBoundingClientRect().top < window.innerHeight * 0.94) {
-            el.classList.add("is-in"); rio.unobserve(el);
-          }
+          if (!el.classList.contains("is-in") && el.getBoundingClientRect().top < limit) { el.classList.add("is-in"); rio.unobserve(el); }
+        });
+        $$(".split-ready:not(.is-split-in)").forEach(function (el) {
+          if (el.getBoundingClientRect().top < limit) el.classList.add("is-split-in");
         });
       });
     }, { passive: true });
@@ -229,29 +248,31 @@
   var mockTabs = $$("[data-mock-tab]");
   var mockViews = $$("[data-mock-view]");
   var mockIndex = 0;
-  function showMock(i) {
-    mockIndex = i % mockTabs.length;
+  UI.showMock = function (i) {
+    mockIndex = ((i % mockTabs.length) + mockTabs.length) % mockTabs.length;
     var key = mockTabs[mockIndex].getAttribute("data-mock-tab");
     mockTabs.forEach(function (t) { t.classList.toggle("is-active", t.getAttribute("data-mock-tab") === key); });
     mockViews.forEach(function (v) { v.classList.toggle("is-active", v.getAttribute("data-mock-view") === key); });
-  }
+  };
   var checklist = $$("[data-checklist] li");
   var checkStep = 0;
-  function tickChecklist() {
-    if (checkStep > checklist.length) { checklist.forEach(function (li) { li.classList.remove("is-done"); }); checkStep = 0; return; }
-    if (checklist[checkStep]) checklist[checkStep].classList.add("is-done");
-    checkStep++;
-  }
+  UI.setChecklist = function (n) { checklist.forEach(function (li, i) { li.classList.toggle("is-done", i < n); }); };
+  // Time-based loop, used whenever the hero is not driven by scroll.
+  var heroScrubbed = function () { return root.classList.contains("hero-scene"); };
   if (reduceMotion.matches) {
-    checklist.slice(0, 3).forEach(function (li) { li.classList.add("is-done"); });
+    UI.setChecklist(3);
   } else {
-    setInterval(function () { if (heroOn && !document.hidden) showMock(mockIndex + 1); }, 4200);
-    setInterval(function () { if (heroOn && !document.hidden) tickChecklist(); }, 1300);
+    setInterval(function () { if (heroOn && !document.hidden && !heroScrubbed()) UI.showMock(mockIndex + 1); }, 4200);
+    setInterval(function () {
+      if (!heroOn || document.hidden || heroScrubbed()) return;
+      checkStep = checkStep > checklist.length ? 0 : checkStep + 1;
+      UI.setChecklist(checkStep);
+    }, 1300);
   }
 
-  /* Subtle pointer parallax */
+  /* Subtle pointer parallax (fallback only; scenes.js owns the hero when it runs) */
   var visual = $("[data-parallax]");
-  if (visual && finePointer.matches && !reduceMotion.matches) {
+  if (visual && finePointer.matches && !reduceMotion.matches && !scenesOn) {
     var win = $(".mock-window", visual);
     var floats = $$("[data-depth]", visual);
     var raf = 0;
@@ -284,7 +305,7 @@
     sorterBtn.setAttribute("aria-pressed", String(on));
     sorterBtn.textContent = on ? "Show the scattered version" : "Organize the work";
   }
-  if (sorter) {
+  if (sorter && !scenesOn) {
     sorterBtn.addEventListener("click", function () { setSorted(!sorter.classList.contains("is-organized")); });
     onceVisible(sorter, function () { setTimeout(function () { setSorted(true); }, reduceMotion.matches ? 0 : 700); }, 0.45);
   }
@@ -303,7 +324,7 @@
       if (tab.scrollIntoView && group.querySelector(".svc-list") && window.innerWidth <= 900) {
         tab.scrollIntoView({ block: "nearest", inline: "center", behavior: reduceMotion.matches ? "auto" : "smooth" });
       }
-      group.dispatchEvent(new CustomEvent("tabchange", { detail: tab }));
+      if (window.ScrollTrigger && scenesOn) window.ScrollTrigger.refresh();
     }
     tabs.forEach(function (tab, i) {
       tab.addEventListener("click", function () { select(tab, false); });
@@ -318,61 +339,39 @@
     });
   });
   $$(".svc-items").forEach(function (ul) { $$("li", ul).forEach(function (li, i) { li.style.setProperty("--i", i); }); });
-  $$(".board-row, .rm-row").forEach(function (row) {
-    row.style.setProperty("--row", Array.prototype.indexOf.call(row.parentNode.children, row));
-  });
 
-  /* ---------- Workflow visualizations ---------- */
-  var wf = $("[data-wf]");
-  var wfOn = false;
-  watchVisibility(wf, function (v) { wfOn = v; });
+  /* ---------- Workflow chapters: index highlight ---------- */
+  var wfLinks = $$("[data-wf-index] li");
+  UI.setWfIndex = function (i) { wfLinks.forEach(function (li, n) { li.classList.toggle("is-active", n === i); }); };
 
-  var pipe = $("[data-pipe]");
-  function countPipe() {
-    $$(".pipe-col", pipe).forEach(function (col) {
-      col.querySelector("h4").setAttribute("data-count", col.querySelectorAll(".pipe-card").length);
-    });
+  /* ---------- Process steps ---------- */
+  var steps = $$("[data-step]");
+  var scenes = $$("[data-scene]");
+  var stageLabel = $("[data-stage-label]");
+  var STEP_NAMES = ["Discover", "Define", "Execute", "Review & Refine"];
+  var currentStep = -1;
+  UI.setStep = function (i) {
+    i = Math.max(0, Math.min(steps.length - 1, i));
+    if (i === currentStep) return;
+    currentStep = i;
+    steps.forEach(function (s, n) { s.classList.toggle("is-active", n === i); s.classList.toggle("is-done", n < i); });
+    scenes.forEach(function (s, n) { s.classList.toggle("is-active", n === i); });
+    if (stageLabel) stageLabel.textContent = "Step 0" + (i + 1) + " · " + STEP_NAMES[i];
+  };
+  UI.setStep(0);
+
+  // Fallbacks without scroll scenes: highlight the step / chapter crossing the middle of the screen.
+  if (!scenesOn && "IntersectionObserver" in window) {
+    var mid = { rootMargin: "-45% 0px -50% 0px" };
+    var sio = new IntersectionObserver(function (en) {
+      en.forEach(function (e) { if (e.isIntersecting) UI.setStep(+e.target.getAttribute("data-step")); });
+    }, mid);
+    steps.forEach(function (s) { sio.observe(s); });
+    var wio = new IntersectionObserver(function (en) {
+      en.forEach(function (e) { if (e.isIntersecting) UI.setWfIndex(+e.target.getAttribute("data-wf-chapter")); });
+    }, mid);
+    $$("[data-wf-chapter]").forEach(function (c) { wio.observe(c); });
   }
-  if (pipe) {
-    countPipe();
-    var stage = 0;
-    var cols = $$(".pipe-col", pipe);
-    setInterval(function () {
-      if (!wfOn || document.hidden || reduceMotion.matches || $("#wf-p1").hidden) return;
-      var from = cols[stage], to = cols[stage + 1];
-      var card = from.querySelector(".pipe-card");
-      if (card) {
-        card.classList.remove("is-arriving", "is-hot");
-        to.appendChild(card);
-        void card.offsetWidth;
-        card.classList.add("is-arriving");
-        if (stage === 2) card.classList.add("is-hot");
-      }
-      var last = cols[3].querySelectorAll(".pipe-card");
-      if (last.length > 2) { last[0].classList.remove("is-hot", "is-arriving"); cols[0].appendChild(last[0]); }
-      stage = (stage + 1) % 3;
-      countPipe();
-    }, 2400);
-  }
-
-  var crm = $("[data-crm]");
-  if (crm) {
-    if (reduceMotion.matches) crm.classList.add("is-clean");
-    setInterval(function () {
-      if (!wfOn || document.hidden || reduceMotion.matches || $("#wf-p2").hidden) return;
-      crm.classList.toggle("is-clean");
-    }, 3200);
-    if (wf) wf.addEventListener("tabchange", function (e) {
-      if (e.detail.id === "wf-t2" && !reduceMotion.matches) {
-        crm.classList.remove("is-clean");
-        setTimeout(function () { crm.classList.add("is-clean"); }, 1100);
-      }
-    });
-  }
-
-  /* ---------- Process timeline ---------- */
-  var timeline = $("[data-timeline]");
-  onceVisible(timeline, function () { timeline.classList.add("is-in"); }, 0.3);
 
   /* ---------- Business Growth Review form ---------- */
   var form = $("[data-review-form]");

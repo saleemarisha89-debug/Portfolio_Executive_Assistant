@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Avenza Business Growth | Business Development, Operations &amp; Growth Support</title>
   <meta name="description" content="Practical business development, lead generation, operations, CRM, research, and growth support for entrepreneurs and growing businesses.">
-  <meta name="theme-color" content="#49304A">
+  <meta name="theme-color" content="#0D080D">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Avenza Business Growth | Business Development, Operations &amp; Growth Support">
   <meta property="og:description" content="Practical business development, lead generation, operations, CRM, research, and growth support for entrepreneurs and growing businesses.">
@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="assets/brand/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/avenza.css">
   <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -80,14 +80,14 @@
 
   <main id="main">
     <!-- ============ HERO ============ -->
-    <section class="hero" id="home" aria-labelledby="hero-title">
+    <section class="hero" id="home" data-bg="plum" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
         <span class="hero-glow hero-glow-1"></span>
         <span class="hero-glow hero-glow-2"></span>
         <svg class="hero-emblem-ghost"><use href="#avz-emblem"/></svg>
       </div>
       <div class="container hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy" data-hero-copy>
           <p class="eyebrow eyebrow-light" data-reveal>Business Development · Operations · Growth Support</p>
           <h1 class="hero-title" id="hero-title" data-split>Build a business that’s ready for <em>what’s next.</em></h1>
           <p class="hero-lede" data-reveal style="--d:.5s">Avenza Business Growth helps ambitious business owners turn scattered tasks, missed opportunities, and disconnected workflows into organized operations and purposeful growth.</p>
@@ -153,14 +153,14 @@
             </div>
           </div>
 
-          <div class="float-card fc-leads" aria-hidden="true" data-depth="1.6">
-            <span class="fc-label">Lead research tracker</span>
+          <div class="float-card fc-leads" aria-hidden="true" data-depth="1.6" data-float="leads">
+            <span class="fc-label">Lead research tracker <em class="fc-sync">Synced</em></span>
             <span class="lead-row"><b>Verified contacts</b><i style="--w:82%"></i></span>
             <span class="lead-row"><b>Decision makers</b><i style="--w:58%"></i></span>
             <span class="lead-row"><b>Ready for outreach</b><i style="--w:36%"></i></span>
           </div>
-          <div class="float-card fc-onboard" aria-hidden="true" data-depth="2.4">
-            <span class="fc-label">Client onboarding</span>
+          <div class="float-card fc-onboard" aria-hidden="true" data-depth="2.4" data-float="onboard">
+            <span class="fc-label">Client onboarding <em class="fc-sync">Synced</em></span>
             <ul class="checklist" data-checklist>
               <li>Welcome email sent</li>
               <li>Kick-off call booked</li>
@@ -168,13 +168,22 @@
               <li>Workspace ready</li>
             </ul>
           </div>
-          <div class="float-card fc-plan" aria-hidden="true" data-depth="1">
-            <span class="fc-label">Quarter priorities</span>
+          <div class="float-card fc-plan" aria-hidden="true" data-depth="1" data-float="plan">
+            <span class="fc-label">Quarter priorities <em class="fc-sync">Synced</em></span>
             <span class="plan-ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="plan-ring-val" cx="18" cy="18" r="15.5"/></svg><b>3/5</b></span>
+          </div>
+          <div class="hero-chips" aria-hidden="true">
+            <span class="h-chip" style="--x:-4%;--y:6%;--r:-7deg">Unread client emails</span>
+            <span class="h-chip" style="--x:44%;--y:0%;--r:5deg">Leads in 3 spreadsheets</span>
+            <span class="h-chip" style="--x:76%;--y:22%;--r:-4deg">Missed follow-up</span>
+            <span class="h-chip" style="--x:-8%;--y:52%;--r:6deg">Meeting notes — where?</span>
+            <span class="h-chip" style="--x:58%;--y:88%;--r:-5deg">Invoice reminders</span>
+            <span class="h-chip" style="--x:20%;--y:94%;--r:4deg">Content ideas</span>
           </div>
           <figcaption class="visual-note">Illustrative interface with sample data — not a live client system.</figcaption>
         </figure>
       </div>
+      <a class="scroll-cue" href="#structure"><span>Scroll to explore</span><i aria-hidden="true"></i></a>
       <div class="hero-ticker" aria-hidden="true">
         <div class="ticker-track">
           <span>Business development</span><i></i><span>Market research</span><i></i><span>Lead generation</span><i></i><span>CRM &amp; data</span><i></i><span>Workflow systems</span><i></i><span>Executive support</span><i></i><span>Marketing execution</span><i></i><span>Project coordination</span><i></i>
@@ -184,11 +193,11 @@
     </section>
 
     <!-- ============ SCATTERED → STRUCTURED ============ -->
-    <section class="section structure" id="structure" aria-labelledby="structure-title">
+    <section class="section structure" id="structure" data-bg="night" aria-labelledby="structure-title">
       <div class="container structure-grid">
         <div class="structure-copy">
-          <p class="eyebrow" data-reveal>Why Avenza</p>
-          <h2 class="h2" id="structure-title" data-reveal>Growth gets easier when the work has <em>a shape.</em></h2>
+          <p class="eyebrow eyebrow-light" data-reveal>Why Avenza</p>
+          <h2 class="h2" id="structure-title" data-split>Growth gets easier when the work has <em>a shape.</em></h2>
           <p class="lede" data-reveal>Most growing businesses don’t lack ambition — they lack time and structure. Tasks live in inboxes, leads sit in spreadsheets, and good opportunities slip between the cracks.</p>
           <p data-reveal>Avenza combines thoughtful planning with reliable execution: we help you see what matters, organize how it gets done, and keep it moving.</p>
           <ul class="pillars" data-reveal>
@@ -214,17 +223,18 @@
             <span class="sorter-foot"><svg class="i"><use href="#i-check"/></svg> Every task has an owner, a status and a next step.</span>
           </div>
           <button class="sorter-toggle" type="button" data-sorter-toggle aria-pressed="false">Organize the work</button>
+          <p class="sorter-hint" aria-hidden="true">Keep scrolling — the work organizes itself.</p>
           <p class="visual-note visual-note-dark">Illustration only.</p>
         </div>
       </div>
     </section>
 
     <!-- ============ SERVICES ============ -->
-    <section class="section services" id="services" aria-labelledby="services-title">
+    <section class="section services" id="services" data-bg="dark" aria-labelledby="services-title">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow" data-reveal>Services</p>
-          <h2 class="h2" id="services-title" data-reveal>Business Support Built Around Your <em>Next Stage of Growth</em></h2>
+          <p class="eyebrow eyebrow-light" data-reveal>Services</p>
+          <h2 class="h2" id="services-title" data-split>Business Support Built Around Your <em>Next Stage of Growth</em></h2>
           <p class="lede" data-reveal>Choose one focused area or combine several. Each engagement starts with your priorities — then we organize, research, coordinate and execute.</p>
         </div>
 
@@ -296,128 +306,169 @@
     </section>
 
     <!-- ============ WORKFLOW VISUALIZATIONS ============ -->
-    <section class="section workflows" id="workflows" aria-labelledby="workflows-title">
-      <div class="container">
-        <div class="section-head section-head-split">
-          <div>
+    <section class="section workflows" id="workflows" data-bg="night" aria-labelledby="workflows-title">
+      <div class="container wf-grid">
+        <div class="wf-aside">
+          <div class="wf-sticky">
             <p class="eyebrow eyebrow-light" data-reveal>Structure in practice</p>
-            <h2 class="h2" id="workflows-title" data-reveal>See how organized work <em>moves forward.</em></h2>
+            <h2 class="h2" id="workflows-title" data-split>See how organized work <em>moves forward.</em></h2>
+            <p class="lede" data-reveal>Four systems we help put in place. Keep scrolling and watch each one come together.</p>
+            <ol class="wf-index" data-wf-index aria-label="Workflow examples">
+              <li class="is-active"><a href="#wf-c1"><span>01</span>Prospect pipeline</a></li>
+              <li><a href="#wf-c2"><span>02</span>CRM cleanup</a></li>
+              <li><a href="#wf-c3"><span>03</span>Project board</a></li>
+              <li><a href="#wf-c4"><span>04</span>Business roadmap</a></li>
+            </ol>
+            <p class="visual-note">Illustrative sample data only — not real client results or a connected business system.</p>
           </div>
-          <p class="lede" data-reveal>A few of the systems we help put in place. Everything shown here is an illustration with fictional sample data.</p>
         </div>
 
-        <div class="wf" data-tabs data-wf data-reveal>
-          <div class="wf-tabs" role="tablist" aria-label="Workflow examples">
-            <button class="wf-tab" role="tab" id="wf-t1" aria-controls="wf-p1" aria-selected="true">Prospect pipeline</button>
-            <button class="wf-tab" role="tab" id="wf-t2" aria-controls="wf-p2" aria-selected="false" tabindex="-1">CRM cleanup</button>
-            <button class="wf-tab" role="tab" id="wf-t3" aria-controls="wf-p3" aria-selected="false" tabindex="-1">Project board</button>
-            <button class="wf-tab" role="tab" id="wf-t4" aria-controls="wf-p4" aria-selected="false" tabindex="-1">Business roadmap</button>
-          </div>
+        <div class="wf-chapters">
+          <article class="wf-chapter" id="wf-c1" data-wf-chapter="0" aria-labelledby="wf-h1">
+            <header class="wf-head"><span class="wf-num">01</span><h3 id="wf-h1">Prospect pipeline</h3>
+              <p>Prospects move from research to qualification, outreach and follow-up, each with a clear next step.</p></header>
+            <div class="pipe" data-pipe aria-hidden="true">
+              <span class="pipe-lane" style="--c:1"></span><span class="pipe-lane" style="--c:2"></span><span class="pipe-lane" style="--c:3"></span><span class="pipe-lane" style="--c:4"></span>
+              <h4 style="--c:1">Research</h4>
+              <div class="pipe-card" style="--c:1;--r:2"><b>Northwind Studio</b><span>Interior design · 12 staff</span></div>
+              <div class="pipe-card is-mover" data-move="3" style="--c:1;--r:3"><b>Lumen Wellness</b><span data-stage-text>Health &amp; wellness</span></div>
+              <div class="pipe-card is-mover" data-move="2" style="--c:1;--r:4"><b>Cedar &amp; Co.</b><span>Professional services</span></div>
+              <h4 style="--c:2">Qualification</h4>
+              <div class="pipe-card" style="--c:2;--r:2"><b>Harbor Goods</b><span>E-commerce · fit confirmed</span></div>
+              <h4 style="--c:3">Outreach</h4>
+              <div class="pipe-card" style="--c:3;--r:2"><b>Brightline Coaching</b><span>Intro email drafted</span></div>
+              <h4 style="--c:4">Follow-up</h4>
+              <div class="pipe-card is-hot" style="--c:4;--r:2"><b>Atlas Advisory</b><span>Reply received · call next</span></div>
+            </div>
+          </article>
 
-          <div class="wf-stage">
-            <!-- Pipeline -->
-            <div class="wf-panel" role="tabpanel" id="wf-p1" aria-labelledby="wf-t1" tabindex="0">
-              <p class="sr-only">Illustration: prospects move from research to qualification, outreach and follow-up.</p>
-              <div class="pipe" data-pipe aria-hidden="true">
-                <div class="pipe-col" data-stage="0"><h4>Research</h4>
-                  <div class="pipe-card"><b>Northwind Studio</b><span>Interior design · 12 staff</span></div>
-                  <div class="pipe-card"><b>Lumen Wellness</b><span>Health &amp; wellness</span></div>
-                  <div class="pipe-card"><b>Cedar &amp; Co.</b><span>Professional services</span></div>
-                </div>
-                <div class="pipe-col" data-stage="1"><h4>Qualification</h4>
-                  <div class="pipe-card"><b>Harbor Goods</b><span>E-commerce · fit confirmed</span></div>
-                </div>
-                <div class="pipe-col" data-stage="2"><h4>Outreach</h4>
-                  <div class="pipe-card"><b>Brightline Coaching</b><span>Intro email drafted</span></div>
-                </div>
-                <div class="pipe-col" data-stage="3"><h4>Follow-up</h4>
-                  <div class="pipe-card is-hot"><b>Atlas Advisory</b><span>Reply received · call next</span></div>
-                </div>
+          <article class="wf-chapter" id="wf-c2" data-wf-chapter="1" aria-labelledby="wf-h2">
+            <header class="wf-head"><span class="wf-num">02</span><h3 id="wf-h2">CRM cleanup</h3>
+              <p>Duplicates merged, gaps filled and every contact given a stage and a next step.</p></header>
+            <div class="crm" data-crm aria-hidden="true">
+              <div class="crm-layer crm-before">
+                <span class="crm-tag">Before</span>
+                <table class="crm-table">
+                  <thead><tr><th>name</th><th>Company</th><th>email</th><th>Notes</th></tr></thead>
+                  <tbody>
+                    <tr><td>jane d.</td><td>northwind</td><td>—</td><td>call?? maybe</td></tr>
+                    <tr><td>JANE DOE</td><td>Northwind Studio</td><td>jane@…</td><td>dup?</td></tr>
+                    <tr><td>Sam</td><td>—</td><td>sam@…</td><td>sent smth in may</td></tr>
+                    <tr><td>p. khan</td><td>lumen</td><td>—</td><td></td></tr>
+                    <tr><td>Alex R</td><td>Atlas adv.</td><td>alex@…</td><td>follow up!!</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="crm-layer crm-after" data-crm-after>
+                <span class="crm-tag crm-tag-after">After</span>
+                <table class="crm-table">
+                  <thead><tr><th>Contact</th><th>Company</th><th>Stage</th><th>Next step</th></tr></thead>
+                  <tbody>
+                    <tr><td>Jane Doe</td><td>Northwind Studio</td><td><em class="tag">Qualified</em></td><td>Proposal · Tue</td></tr>
+                    <tr><td>Sam Lee</td><td>Harbor Goods</td><td><em class="tag tag-next">Outreach</em></td><td>Follow-up · Thu</td></tr>
+                    <tr><td>Priya Khan</td><td>Lumen Wellness</td><td><em class="tag tag-muted">Research</em></td><td>Verify email</td></tr>
+                    <tr><td>Alex Reed</td><td>Atlas Advisory</td><td><em class="tag tag-done">Call booked</em></td><td>Call · Mon</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <span class="crm-scan" data-crm-scan></span>
+            </div>
+          </article>
+
+          <article class="wf-chapter" id="wf-c3" data-wf-chapter="2" aria-labelledby="wf-h3">
+            <header class="wf-head"><span class="wf-num">03</span><h3 id="wf-h3">Project board</h3>
+              <p>Every deliverable has an owner, a deadline and visible progress.</p></header>
+            <div class="board" aria-hidden="true">
+              <div class="board-row board-head"><span>Deliverable</span><span>Owner</span><span>Due</span><span>Progress</span></div>
+              <div class="board-row"><span>Client onboarding kit</span><span class="owner"><i>OP</i>Operations</span><span class="due">Oct 18</span><span class="bar"><i style="--w:90%"></i></span></div>
+              <div class="board-row"><span>Competitor report</span><span class="owner"><i>RS</i>Research</span><span class="due">Oct 21</span><span class="bar"><i style="--w:65%"></i></span></div>
+              <div class="board-row"><span>CRM migration</span><span class="owner"><i>CR</i>CRM lead</span><span class="due due-soon">Oct 17</span><span class="bar"><i style="--w:80%"></i></span></div>
+              <div class="board-row"><span>Q4 content calendar</span><span class="owner"><i>MK</i>Marketing</span><span class="due">Oct 28</span><span class="bar"><i style="--w:30%"></i></span></div>
+              <div class="board-row"><span>Weekly status update</span><span class="owner"><i>PM</i>Project lead</span><span class="due">Fridays</span><span class="bar"><i style="--w:100%"></i></span></div>
+            </div>
+          </article>
+
+          <article class="wf-chapter" id="wf-c4" data-wf-chapter="3" aria-labelledby="wf-h4">
+            <header class="wf-head"><span class="wf-num">04</span><h3 id="wf-h4">Business roadmap</h3>
+              <p>Priorities laid out across the quarter, so everyone knows what comes next.</p></header>
+            <div class="roadmap" aria-hidden="true">
+              <div class="rm-months"><span></span><span>Month 1</span><span>Month 2</span><span>Month 3</span></div>
+              <div class="rm-body">
+                <div class="rm-row"><span class="rm-label">Clarify offer &amp; audience</span><span class="rm-track"><span class="rm-bar" style="--s:0;--e:1.2"></span></span></div>
+                <div class="rm-row"><span class="rm-label">Organize CRM &amp; pipeline</span><span class="rm-track"><span class="rm-bar" style="--s:.6;--e:1.9"></span></span></div>
+                <div class="rm-row"><span class="rm-label">Document core SOPs</span><span class="rm-track"><span class="rm-bar rm-alt" style="--s:1;--e:2.4"></span></span></div>
+                <div class="rm-row"><span class="rm-label">Steady outreach rhythm</span><span class="rm-track"><span class="rm-bar" style="--s:1.6;--e:3"></span></span></div>
+                <div class="rm-row"><span class="rm-label">Review &amp; refine</span><span class="rm-track"><span class="rm-bar rm-alt" style="--s:2.5;--e:3"></span></span></div>
+                <span class="rm-today" data-rm-today><b>Now</b></span>
               </div>
             </div>
-
-            <!-- CRM -->
-            <div class="wf-panel" role="tabpanel" id="wf-p2" aria-labelledby="wf-t2" tabindex="0" hidden>
-              <p class="sr-only">Illustration: an inconsistent contact list becomes a clean CRM view with statuses and next steps.</p>
-              <div class="crm" data-crm aria-hidden="true">
-                <div class="crm-switch"><span class="crm-label crm-label-before">Before</span><span class="crm-knob"></span><span class="crm-label crm-label-after">After</span></div>
-                <div class="crm-tables">
-                  <table class="crm-table crm-before">
-                    <thead><tr><th>name</th><th>Company</th><th>email</th><th>Notes</th></tr></thead>
-                    <tbody>
-                      <tr><td>jane d.</td><td>northwind</td><td>—</td><td>call?? maybe</td></tr>
-                      <tr><td>JANE DOE</td><td>Northwind Studio</td><td>jane@…</td><td>dup?</td></tr>
-                      <tr><td>Sam</td><td>—</td><td>sam@…</td><td>sent smth in may</td></tr>
-                      <tr><td>p. khan</td><td>lumen</td><td>—</td><td></td></tr>
-                      <tr><td>Alex R</td><td>Atlas adv.</td><td>alex@…</td><td>follow up!!</td></tr>
-                    </tbody>
-                  </table>
-                  <table class="crm-table crm-after">
-                    <thead><tr><th>Contact</th><th>Company</th><th>Stage</th><th>Next step</th></tr></thead>
-                    <tbody>
-                      <tr><td>Jane Doe</td><td>Northwind Studio</td><td><em class="tag">Qualified</em></td><td>Proposal · Tue</td></tr>
-                      <tr><td>Sam Lee</td><td>Harbor Goods</td><td><em class="tag tag-next">Outreach</em></td><td>Follow-up · Thu</td></tr>
-                      <tr><td>Priya Khan</td><td>Lumen Wellness</td><td><em class="tag tag-muted">Research</em></td><td>Verify email</td></tr>
-                      <tr><td>Alex Reed</td><td>Atlas Advisory</td><td><em class="tag tag-done">Call booked</em></td><td>Call · Mon</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project board -->
-            <div class="wf-panel" role="tabpanel" id="wf-p3" aria-labelledby="wf-t3" tabindex="0" hidden>
-              <p class="sr-only">Illustration: a project board listing deliverables with owners, deadlines and progress.</p>
-              <div class="board" aria-hidden="true">
-                <div class="board-row board-head"><span>Deliverable</span><span>Owner</span><span>Due</span><span>Progress</span></div>
-                <div class="board-row"><span>Client onboarding kit</span><span class="owner"><i>OP</i>Operations</span><span class="due">Oct 18</span><span class="bar"><i style="--w:90%"></i></span></div>
-                <div class="board-row"><span>Competitor report</span><span class="owner"><i>RS</i>Research</span><span class="due">Oct 21</span><span class="bar"><i style="--w:65%"></i></span></div>
-                <div class="board-row"><span>CRM migration</span><span class="owner"><i>CR</i>CRM lead</span><span class="due due-soon">Oct 17</span><span class="bar"><i style="--w:80%"></i></span></div>
-                <div class="board-row"><span>Q4 content calendar</span><span class="owner"><i>MK</i>Marketing</span><span class="due">Oct 28</span><span class="bar"><i style="--w:30%"></i></span></div>
-                <div class="board-row"><span>Weekly status update</span><span class="owner"><i>PM</i>Project lead</span><span class="due">Fridays</span><span class="bar"><i style="--w:100%"></i></span></div>
-              </div>
-            </div>
-
-            <!-- Roadmap -->
-            <div class="wf-panel" role="tabpanel" id="wf-p4" aria-labelledby="wf-t4" tabindex="0" hidden>
-              <p class="sr-only">Illustration: a quarterly roadmap with organized priorities over three months.</p>
-              <div class="roadmap" aria-hidden="true">
-                <div class="rm-months"><span></span><span>Month 1</span><span>Month 2</span><span>Month 3</span></div>
-                <div class="rm-row"><span class="rm-label">Clarify offer &amp; audience</span><span class="rm-bar" style="--s:0;--e:1.2"></span></div>
-                <div class="rm-row"><span class="rm-label">Organize CRM &amp; pipeline</span><span class="rm-bar" style="--s:.6;--e:1.9"></span></div>
-                <div class="rm-row"><span class="rm-label">Document core SOPs</span><span class="rm-bar rm-alt" style="--s:1;--e:2.4"></span></div>
-                <div class="rm-row"><span class="rm-label">Steady outreach rhythm</span><span class="rm-bar" style="--s:1.6;--e:3"></span></div>
-                <div class="rm-row"><span class="rm-label">Review &amp; refine</span><span class="rm-bar rm-alt" style="--s:2.5;--e:3"></span></div>
-              </div>
-            </div>
-          </div>
-          <p class="visual-note">Illustrative sample data only — not real client results or a connected business system.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- ============ PROCESS ============ -->
-    <section class="section process" id="process" aria-labelledby="process-title">
-      <div class="container">
-        <div class="section-head section-head-center">
-          <p class="eyebrow" data-reveal>How Avenza works</p>
-          <h2 class="h2" id="process-title" data-reveal>Four steps from <em>priorities to progress.</em></h2>
+    <section class="section process" id="process" data-bg="plum" aria-labelledby="process-title">
+      <div class="container process-grid" data-process>
+        <div class="process-left">
+          <p class="eyebrow eyebrow-light" data-reveal>How Avenza works</p>
+          <h2 class="h2" id="process-title" data-split>Four steps from <em>priorities to progress.</em></h2>
+          <ol class="timeline" data-timeline>
+            <li class="tl-step is-active" data-step="0"><span class="tl-dot"><i>01</i></span><div class="tl-body"><h3>Discover</h3><p>Understand the business and its priorities.</p></div></li>
+            <li class="tl-step" data-step="1"><span class="tl-dot"><i>02</i></span><div class="tl-body"><h3>Define</h3><p>Agree on scope, deliverables, and responsibilities.</p></div></li>
+            <li class="tl-step" data-step="2"><span class="tl-dot"><i>03</i></span><div class="tl-body"><h3>Execute</h3><p>Move the agreed work forward.</p></div></li>
+            <li class="tl-step" data-step="3"><span class="tl-dot"><i>04</i></span><div class="tl-body"><h3>Review &amp; Refine</h3><p>Review progress and identify next steps.</p></div></li>
+            <li class="tl-rail" aria-hidden="true"><i data-rail-fill></i></li>
+          </ol>
         </div>
-        <ol class="timeline" data-timeline>
-          <li class="tl-step" data-reveal style="--d:.05s"><span class="tl-dot"><i>01</i></span><h3>Discover</h3><p>Understand the business and its priorities.</p></li>
-          <li class="tl-step" data-reveal style="--d:.2s"><span class="tl-dot"><i>02</i></span><h3>Define</h3><p>Agree on scope, deliverables, and responsibilities.</p></li>
-          <li class="tl-step" data-reveal style="--d:.35s"><span class="tl-dot"><i>03</i></span><h3>Execute</h3><p>Move the agreed work forward.</p></li>
-          <li class="tl-step" data-reveal style="--d:.5s"><span class="tl-dot"><i>04</i></span><h3>Review &amp; Refine</h3><p>Review progress and identify next steps.</p></li>
-        </ol>
+        <div class="process-stage" aria-hidden="true">
+          <div class="stage-card">
+            <div class="stage-top"><span class="stage-label" data-stage-label>Step 01 · Discover</span><span class="stage-progress"><i data-stage-bar></i></span></div>
+            <div class="stage-scenes">
+              <div class="stage-scene is-active" data-scene="0">
+                <b class="scene-title">Discovery notes</b>
+                <ul class="scene-notes">
+                  <li>What takes most of your week right now?</li>
+                  <li>Where do new leads come from today?</li>
+                  <li>Which tools hold your client information?</li>
+                  <li>What would make the next quarter a success?</li>
+                </ul>
+              </div>
+              <div class="stage-scene" data-scene="1">
+                <b class="scene-title">Scope summary</b>
+                <div class="scene-scope">
+                  <span><i></i>CRM cleanup</span><em>Week 1–2</em>
+                  <span><i></i>Core SOP drafts</span><em>Week 2–3</em>
+                  <span><i></i>Weekly check-in</span><em>Fridays</em>
+                  <span><i></i>Final sign-off</span><em>You</em>
+                </div>
+              </div>
+              <div class="stage-scene" data-scene="2">
+                <b class="scene-title">This week</b>
+                <div class="scene-kanban">
+                  <div><h5>To do</h5><span>Prospect list</span><span>Draft SOP</span></div>
+                  <div><h5>Doing</h5><span class="is-moving">CRM import</span></div>
+                  <div><h5>Done</h5><span>Kick-off call</span><span>Access set up</span></div>
+                </div>
+              </div>
+              <div class="stage-scene" data-scene="3">
+                <b class="scene-title">Progress review</b>
+                <div class="scene-chart"><i style="--h:38%"></i><i style="--h:56%"></i><i style="--h:64%"></i><i style="--h:82%"></i></div>
+                <p class="scene-next"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg> Next: refine outreach templates</p>
+              </div>
+            </div>
+            <p class="stage-note">Illustration with sample content.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ============ PRICING ============ -->
-    <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+    <section class="section pricing" id="pricing" data-bg="dark" aria-labelledby="pricing-title">
       <div class="container">
         <div class="section-head section-head-center">
-          <p class="eyebrow" data-reveal>Pricing</p>
-          <h2 class="h2" id="pricing-title" data-reveal>Clear starting points, <em>shaped around your scope.</em></h2>
+          <p class="eyebrow eyebrow-light" data-reveal>Pricing</p>
+          <h2 class="h2" id="pricing-title" data-split>Clear starting points, <em>shaped around your scope.</em></h2>
           <p class="lede" data-reveal>Prices in USD. Pick a focused project or ongoing support — we confirm the details together.</p>
         </div>
         <div class="price-grid" data-pricing>
@@ -429,7 +480,7 @@
     </section>
 
     <!-- ============ FOUNDER ============ -->
-    <section class="section founder" id="about" aria-labelledby="founder-title">
+    <section class="section founder" id="about" data-bg="night" aria-labelledby="founder-title">
       <div class="container founder-grid">
         <div class="founder-media" data-reveal>
           <div class="portrait portrait-founder" data-portrait data-initials="AS">
@@ -438,13 +489,13 @@
           <span class="founder-badge"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg> Founder</span>
         </div>
         <div class="founder-copy">
-          <p class="eyebrow" data-reveal>About the founder</p>
-          <h2 class="h2" id="founder-title" data-reveal>Meet <em>Arisha Saleem.</em></h2>
+          <p class="eyebrow eyebrow-light" data-reveal>About the founder</p>
+          <h2 class="h2" id="founder-title" data-split>Meet <em>Arisha Saleem.</em></h2>
           <p class="founder-quote" data-reveal>“I’m Arisha Saleem, Founder of Avenza Business Growth. My work brings together business development, research, lead generation, operations, CRM management, marketing execution, and practical business support.”</p>
           <p data-reveal>“I’m passionate about helping business owners bring structure to their work, identify opportunities, and move important priorities forward.”</p>
           <p class="founder-role" data-reveal><b>Arisha Saleem</b><span>Founder &amp; Business Development Lead</span></p>
           <div class="founder-links" data-reveal>
-            <a class="btn btn-plum" data-link="booking" href="https://cal.com/arisha-saleem-efihir/book-free-call-with-arisha" target="_blank" rel="noopener">Book a Free Call</a>
+            <a class="btn btn-pink" data-link="booking" href="https://cal.com/arisha-saleem-efihir/book-free-call-with-arisha" target="_blank" rel="noopener">Book a Free Call</a>
             <a class="icon-link" data-link="linkedin" href="https://www.linkedin.com/in/arisha-saleem-b06336305/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn</a>
             <a class="icon-link" data-link="fiverr" href="https://www.fiverr.com/arishasaleem567?public_mode=true" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-external"/></svg> Fiverr profile</a>
           </div>
@@ -453,12 +504,12 @@
     </section>
 
     <!-- ============ TESTIMONIALS ============ -->
-    <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
+    <section class="section testimonials" id="testimonials" data-bg="dark" aria-labelledby="testimonials-title">
       <div class="container">
         <div class="section-head section-head-split">
           <div>
-            <p class="eyebrow" data-reveal>Client words</p>
-            <h2 class="h2" id="testimonials-title" data-reveal>What clients say about <em>working with Arisha.</em></h2>
+            <p class="eyebrow eyebrow-light" data-reveal>Client words</p>
+            <h2 class="h2" id="testimonials-title" data-split>What clients say about <em>working with Arisha.</em></h2>
           </div>
           <p class="testi-disclaimer" data-reveal>These are verbatim reviews of Arisha Saleem’s individual freelance work on Fiverr — not testimonials received by Avenza Business Growth as a company. Client names are withheld for privacy.</p>
         </div>
@@ -476,11 +527,11 @@
     </section>
 
     <!-- ============ TEAM ============ -->
-    <section class="section team" id="team" aria-labelledby="team-title">
+    <section class="section team" id="team" data-bg="plum" aria-labelledby="team-title">
       <div class="container">
         <div class="section-head section-head-center">
           <p class="eyebrow eyebrow-light" data-reveal>Founding team</p>
-          <h2 class="h2" id="team-title" data-reveal>The People Behind <em>Avenza</em></h2>
+          <h2 class="h2" id="team-title" data-split>The People Behind <em>Avenza</em></h2>
           <p class="lede" data-reveal>Different strengths. One shared goal: helping businesses move forward.</p>
         </div>
         <div class="team-grid" data-team>
@@ -491,14 +542,14 @@
     </section>
 
     <!-- ============ PORTFOLIO ============ -->
-    <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-title">
+    <section class="section portfolio" id="portfolio" data-bg="night" aria-labelledby="portfolio-title">
       <div class="container portfolio-grid">
         <div class="portfolio-copy">
-          <p class="eyebrow" data-reveal>Portfolio</p>
-          <h2 class="h2" id="portfolio-title" data-reveal>Selected Work &amp; <em>Business Support Experience</em></h2>
+          <p class="eyebrow eyebrow-light" data-reveal>Portfolio</p>
+          <h2 class="h2" id="portfolio-title" data-split>Selected Work &amp; <em>Business Support Experience</em></h2>
           <p class="lede" data-reveal>A look at the projects, systems, and business support work behind my approach to execution.</p>
           <p class="small-note" data-reveal>Arisha’s portfolio opens in Canva in a new tab.</p>
-          <a class="btn btn-plum btn-lg" data-reveal data-link="portfolio" href="https://canva.link/ubkblrzkw6538wf" target="_blank" rel="noopener">View My Portfolio <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
+          <a class="btn btn-pink btn-lg" data-reveal data-link="portfolio" href="https://canva.link/ubkblrzkw6538wf" target="_blank" rel="noopener">View My Portfolio <svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a>
         </div>
         <a class="folio-visual" data-reveal data-link="portfolio" href="https://canva.link/ubkblrzkw6538wf" target="_blank" rel="noopener" aria-label="Open Arisha Saleem’s portfolio on Canva (new tab)">
           <span class="folio-page folio-p3" aria-hidden="true"><b>Workflows</b></span>
@@ -515,7 +566,7 @@
     </section>
 
     <!-- ============ GROWTH REVIEW FORM ============ -->
-    <section class="section review" id="review" aria-labelledby="review-title">
+    <section class="section review" id="review" data-bg="dark" aria-labelledby="review-title">
       <div class="container review-grid">
         <div class="review-intro" data-reveal>
           <p class="eyebrow">Free business growth review</p>
@@ -626,7 +677,7 @@
     </section>
 
     <!-- ============ FINAL CTA ============ -->
-    <section class="final" id="get-started" aria-labelledby="final-title">
+    <section class="final" id="get-started" data-bg="plum" aria-labelledby="final-title">
       <div class="final-bg" aria-hidden="true">
         <svg class="final-ribbon" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M-20 300C260 120 520 140 700 250C860 350 1020 380 1220 330C1020 400 820 390 660 300C500 210 260 190 -20 300Z"/></svg>
         <svg class="final-spark final-spark-1"><use href="#i-sparkle"/></svg>
@@ -634,7 +685,7 @@
       </div>
       <div class="container final-inner">
         <p class="eyebrow eyebrow-light" data-reveal>Let’s begin</p>
-        <h2 class="final-title" id="final-title" data-reveal>Your next stage of growth starts with <em>a clearer plan.</em></h2>
+        <h2 class="final-title" id="final-title" data-split>Your next stage of growth starts with <em>a clearer plan.</em></h2>
         <p class="final-lede" data-reveal>Whether you need a focused project, ongoing business support, or help bringing more structure to your operations, let’s discuss what would move your business forward.</p>
         <div class="hero-ctas final-ctas" data-reveal>
           <a class="btn btn-pink btn-lg" data-link="booking" href="https://cal.com/arisha-saleem-efihir/book-free-call-with-arisha" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-calendar"/></svg> Book a Free Call</a>
@@ -679,6 +730,9 @@
   </footer>
 
   <script src="assets/js/content.js"></script>
+  <script src="assets/vendor/gsap/gsap.min.js"></script>
+  <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/scenes.js"></script>
 </body>
 </html>

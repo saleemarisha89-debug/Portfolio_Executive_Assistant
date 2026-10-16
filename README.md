@@ -2,7 +2,7 @@
 
 The website for **Avenza Business Growth**: *Structure. Strategy. Sustainable Growth.*
 
-It's a static site with no build step and no dependencies: plain HTML, CSS and JavaScript, using Google Fonts (Poppins and DM Sans).
+It's a static site with no build step: plain HTML, CSS and JavaScript, using Google Fonts (Poppins and DM Sans). Scroll animation uses GSAP 3.13 with ScrollTrigger, which is included in `assets/vendor/gsap/`, so there is nothing to install.
 
 ## Run locally
 
@@ -19,7 +19,9 @@ Then open <http://localhost:8080/>. Opening `index.html` straight from disk also
 | `index.html` | The page itself, with every section and its semantic markup |
 | `assets/css/avenza.css` | All styles. Brand colours are CSS variables at the top. |
 | `assets/js/content.js` | **Editable content**: links, pricing, team, testimonials and the form endpoint |
-| `assets/js/main.js` | Navigation, animations, tabs, workflow mockups, rendering and form logic |
+| `assets/js/main.js` | Navigation, rendering, tabs, form logic, and the simpler animations used when scroll scenes are off |
+| `assets/js/scenes.js` | Scroll-driven scenes: the pinned hero and process scenes, scroll-linked workflow mockups, parallax and section colour transitions |
+| `assets/vendor/gsap/` | GSAP and ScrollTrigger 3.13.0, under GreenSock's standard no-charge licence |
 | `assets/brand/` | SVG logos: primary (ivory), inverted (plum), horizontal, emblem, ABG monogram, favicon |
 | `favicon.svg` | Site favicon (a copy of `assets/brand/favicon.svg`) |
 | `public/images/arisha-portrait.jpeg` | Founder portrait |
@@ -51,4 +53,14 @@ To connect a service, set `reviewForm.endpoint` in `content.js` to a URL that ac
 | Dusty Pink | `#D9A7B8` |
 | Warm Ivory | `#F4EFE9` |
 
-Headings use Poppins and body text uses DM Sans. Dusty pink is only used for text on plum or dark backgrounds, where the contrast is 5.6:1. On ivory it is decorative only, because the contrast there is too low for text.
+Headings use Poppins Black and body text uses DM Sans Medium. The site is dark-first: dark and plum sections, ivory for interface mockups, cards and the form, and dusty pink for highlights. Dusty pink is only used for text on plum or dark backgrounds, where the contrast is at least 5.6:1.
+
+## Scroll experience
+
+- **Hero (desktop):** the hero pins briefly while scattered tasks fly into the workspace, the window straightens and the side panels dock.
+- **"Work has a shape":** the task board organizes itself as you scroll.
+- **Workflows:** four chapters (pipeline, CRM, project board, roadmap) animate with scroll, beside a sticky index.
+- **How Avenza works (desktop):** this section pins while the four steps play through. On mobile the steps highlight one by one, without pinning.
+- **Section colours:** the background cross-fades between dark, deep plum and plum.
+
+Nothing hijacks scrolling. Pins use native scroll and release on their own. Visitors who ask their device for reduced motion get a static page with no pins and all content visible. If GSAP fails to load, the page falls back to simple fade-ins.
