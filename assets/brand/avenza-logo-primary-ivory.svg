@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="t">
+  <title id="t">Avenza Business Growth</title>
+  <rect width="400" height="300" fill="#F4EFE9"/>
+  <g transform="translate(140 18)"><g class="avz-emblem">
+    <path fill="#49304A" d="M57 10H66L96 102H87Z"/>
+    <path fill="#49304A" d="M57 10H60.4L31 102H27.6Z"/>
+    <path fill="#49304A" d="M19 100.6H39V102.8H19ZM79 100.6H105V102.8H79Z"/>
+    <path fill="#D9A7B8" d="M18 76C40 56 64 57 80 71C93 83 105 89 119 89C105 95 88 92 74 80C61 69 44 64 18 76Z"/>
+    <path fill="#D9A7B8" d="M99 18C100.2 26.5 102.5 28.8 111 30C102.5 31.2 100.2 33.5 99 42C97.8 33.5 95.5 31.2 87 30C95.5 28.8 97.8 26.5 99 18Z"/>
+  </g></g>
+  <g transform="translate(78 152)"><g class="avz-wordmark" fill="none" stroke="#49304A" stroke-linejoin="miter"><path stroke-width="1.7" d="M1 40L17 0M9 27H27"/><path stroke-width="4.2" d="M17 0L33 40"/><path stroke-width="4.2" d="M47 0L63 40"/><path stroke-width="1.7" d="M63 40L79 0"/><path stroke-width="4.2" d="M94 0V40"/><path stroke-width="1.7" d="M94 0.85H116M94 20H113M94 39.15H116"/><path stroke-width="1.7" d="M129 0V40M157 0V40"/><path stroke-width="4.2" d="M129 0L157 40"/><path stroke-width="1.7" d="M170 0.85H197M170 39.15H197"/><path stroke-width="4.2" d="M197 0.85L170 39.15"/><path stroke-width="1.7" d="M211 40L227 0M219 27H237"/><path stroke-width="4.2" d="M227 0L243 40"/></g></g>
+  <text x="200" y="224" text-anchor="middle" font-family="Poppins, 'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="5.2" fill="#49304A">BUSINESS GROWTH</text>
+  <path d="M172 240H228" stroke="#D9A7B8" stroke-width="1"/>
+  <text x="200" y="262" text-anchor="middle" font-family="Poppins, 'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="500" letter-spacing="2.4" fill="#0D080D">STRUCTURE · STRATEGY · SUSTAINABLE GROWTH</text>
+</svg>
