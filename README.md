@@ -31,9 +31,9 @@ Then open <http://localhost:8080/>. Opening `index.html` straight from disk also
 ## Common edits
 
 - **Prices:** edit `pricing` in `assets/js/content.js`.
-- **Team photos:** put an image in `public/images/team/` and set that member's `image` path in `content.js`. While `image` is `null`, or if the file fails to load, the initials placeholder is shown. Portraits are cropped to 4:5.
-- **Links** (booking, portfolio, Fiverr, LinkedIn, email): edit `links` and `brand.email` in `content.js`. Every button on the page updates.
-- **Testimonials:** edit `testimonials` in `content.js`. Use only genuine reviews.
+- **Team photos:** portraits live in `public/images/team/`, and each member's `image` path is set in `content.js`. If `image` is `null`, or the file fails to load, an initials placeholder is shown. Portraits are cropped to 4:5.
+- **Links** (booking, LinkedIn, email): edit `links` and `brand.email` in `content.js`. Every button on the page updates. LinkedIn shows as "coming soon" while its URL is empty, and becomes a real link once you add one.
+- **Reviews:** edit `testimonials` in `content.js`. Each review has `for` (the team member), `name` (the reviewer's username, or empty if unknown), `rating` (out of 5, or `null` if unknown) and the verbatim `quote`.
 
 ## Business Growth Review form — needs setup before launch
 

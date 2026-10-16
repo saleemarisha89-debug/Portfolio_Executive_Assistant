@@ -14,9 +14,9 @@ window.AVENZA = {
 
   links: {
     booking: "https://cal.com/arisha-saleem-efihir/book-free-call-with-arisha",
-    portfolio: "https://canva.link/ubkblrzkw6538wf",
-    fiverr: "https://www.fiverr.com/arishasaleem567?public_mode=true",
-    linkedin: "https://www.linkedin.com/in/arisha-saleem-b06336305/",
+    // LinkedIn is shown as a "coming soon" placeholder while this is empty.
+    // Paste the profile URL here to turn the placeholders into real links.
+    linkedin: "",
   },
 
   /*
@@ -99,9 +99,8 @@ window.AVENZA = {
   ],
 
   /*
-   * Team profiles. Set `image` to a path such as
-   * "public/images/team/natasha.jpg" once a real portrait exists; while it is
-   * null (or the file fails to load) the initials placeholder is shown.
+   * Team profiles. `image` is a path under public/images/team/. If an image
+   * is null or fails to load, the initials placeholder is shown instead.
    * Portraits are displayed at a 4:5 ratio with a centred crop.
    */
   team: [
@@ -109,7 +108,7 @@ window.AVENZA = {
       name: "Arisha Saleem",
       role: "Founder & Business Development Lead",
       initials: "AS",
-      image: null,
+      image: "public/images/team/arisha-saleem.jpg",
       focus: [
         "Business direction",
         "Business development",
@@ -121,15 +120,15 @@ window.AVENZA = {
       name: "Natasha",
       role: "Co-Founder",
       initials: "N",
-      image: null,
+      image: "public/images/team/natasha.jpg",
+      note: "A central part of Avenza Business Growth. As Co-Founder, Natasha brings hands-on experience from the many client projects she has delivered.",
       focus: [],
-      note: "Profile details coming soon.",
     },
     {
       name: "Hadia",
       role: "Chief Operating Officer (COO)",
       initials: "H",
-      image: null,
+      image: "public/images/team/hadia.jpg",
       focus: [
         "Day-to-day operations",
         "Workflows & delivery processes",
@@ -137,10 +136,10 @@ window.AVENZA = {
       ],
     },
     {
-      name: "Saleem",
+      name: "Muhammad",
       role: "Chief Financial Officer (CFO)",
-      initials: "S",
-      image: null,
+      initials: "M",
+      image: "public/images/team/muhammad.jpg",
       focus: [
         "Finance management",
         "Budgeting & financial planning",
@@ -150,59 +149,83 @@ window.AVENZA = {
   ],
 
   /*
-   * Verbatim client reviews of Arisha Saleem's individual freelance work,
-   * taken from her Fiverr order-history export ("Arisha fiverr.docx").
-   * Client usernames are intentionally not published. These are NOT reviews
-   * of Avenza Business Growth as a company.
+   * Verbatim client reviews of each team member's individual freelance work.
+   * NOT reviews of Avenza Business Growth as a company.
+   * - Arisha: from her Fiverr order-history export ("Arisha fiverr.docx").
+   * - Natasha, Hadia, Muhammad: as supplied by the team (October 2026).
+   * `name` is the reviewer's username; leave it "" when it is not known.
+   * `rating` is out of 5; use null when it is not known.
    */
   testimonials: [
     {
+      for: "Arisha Saleem",
+      name: "next_level_nik",
+      rating: 5,
       quote:
         "So far, I've had a great experience! We communicate well and effectively, and I appreciate her cooperation, as a lot of the work that I have assigned so far seems a bit random. She did great with asking clarifying questions as needed, and did not need micromanaging with the amount of details I gave her upfront for each task. I really am looking forward to continuing our work together! If you're looking for an assistant that you don't need to micromanage, would highly encourage you to work with Arisha!",
-      rating: 5,
-      date: "June 2026",
     },
     {
+      for: "Arisha Saleem",
+      name: "mikewilson1406",
+      rating: 5,
       quote:
         "Another excellent experience with Arisha. This was the first time carryng out a research project for us and it exceeds our expectations. Delivered on time and covering everything we asked for in the right level of detail. Great work!",
-      rating: 5,
-      date: "April 2026",
     },
     {
-      quote:
-        "Arisha has been consistent, organized, and easy to work with. She followed through on every task and made adjustments quickly based on feedback. I appreciated the clean design style, reliable communication, and the structure she brought to the project. Looking forward to continuing the workflow—we’re building something solid here.",
+      for: "Arisha Saleem",
+      name: "sbedecki",
       rating: 5,
-      date: "June 2025",
-    },
-    {
       quote:
         "Arisha is an absolute gem! She took over my inbox management, calendar scheduling, and client follow-ups with incredible efficiency and care. Communication was smooth, deadlines were always met, and her proactive attitude made a huge difference. Highly recommend her if you need someone reliable and detail-oriented!",
-      rating: 5,
-      date: "April 2025",
     },
     {
+      for: "Natasha",
+      name: "",
+      rating: null,
       quote:
-        "incredible work as always. Consistent communication, always reviewing the work and trying to find better ways to improve. Will keep working with her as long as possible.",
-      rating: 5,
-      date: "December 2025",
+        "Natasha did an excellent job! The work was accurate, well-organized, and delivered with great attention to detail. Communication was smooth throughout the process. Highly recommended!",
     },
     {
+      for: "Natasha",
+      name: "",
+      rating: null,
       quote:
-        "Arisha was fantastic to work with – professional, proactive, and detail-oriented. She understood my needs quickly and delivered everything on time with great communication throughout. Highly recommended!",
-      rating: 5,
-      date: "November 2025",
+        "Natasha was wonderful to work with! She understood the requirements quickly, communicated clearly, and handled everything professionally. I truly appreciate her dedication and efficiency.",
     },
     {
+      for: "Natasha",
+      name: "",
+      rating: null,
       quote:
-        "Working with Arisha was a wonderful experience, I’d tried a few other VA’s that just didn’t get it. Arisha did and delivered exactly what I needed. Will use again 100%.",
-      rating: 5,
-      date: "August 2025",
+        "Great experience working with Natasha. She conducted thorough research and presented the information clearly and professionally. Very detail-oriented and reliable!",
     },
     {
+      for: "Hadia",
+      name: "Rrtp777",
+      rating: 5,
       quote:
-        "A really plaisant and efficient communication, delivery ontime, good quality and understanding of the test assignment. As a result, I took a monthly premium package as next step.",
-      rating: 4.7,
-      date: "May 2026",
+        "Hadia did an excellent job. She completed the task exactly as was requested. Anytime she had any questions, she asked me to ensure she was doing the job correctly. I look forward to working with her again. Highly recommended seller!",
+    },
+    {
+      for: "Hadia",
+      name: "abdellahbardich",
+      rating: 5,
+      quote:
+        "Hadia went above and beyond what was requested. She is a quick learner and a talented problem-solver, and I am so happy to have chosen her as my VA",
+    },
+    {
+      for: "Muhammad",
+      name: "remc_uk",
+      rating: 5,
+      quote:
+        "Great experience working with Muhammad for the first time carrying out some market research in my business sector. Great communication, excellent standard of work and extremely polite. Will definitely be working together again soon",
+    },
+    {
+      for: "Muhammad",
+      name: "lainelindsay",
+      rating: 5,
+      quote:
+        "Mohammad did a great job. I plan to hire him for future work.",
     },
   ],
 };

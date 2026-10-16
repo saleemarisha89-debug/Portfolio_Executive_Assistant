@@ -38,6 +38,16 @@
     if (key === "email" && C.brand && C.brand.email) a.href = "mailto:" + C.brand.email;
     else if (links[key]) a.href = links[key];
   });
+  // Placeholders (e.g. LinkedIn "coming soon") become real links once a URL is set in content.js.
+  $$("[data-link-placeholder]").forEach(function (el) {
+    var url = links[el.getAttribute("data-link-placeholder")];
+    if (!url) return;
+    var a = document.createElement("a");
+    a.className = el.className.replace(/\bis-placeholder\b/, "").trim();
+    a.href = url; a.target = "_blank"; a.rel = "noopener";
+    a.innerHTML = el.innerHTML.replace(/\s*<small>.*?<\/small>/, "");
+    el.replaceWith(a);
+  });
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
   /* ---------- Header ---------- */
@@ -154,13 +164,16 @@
   var testiTrack = $("[data-testi-track]");
   if (testiTrack && C.testimonials) {
     testiTrack.innerHTML = C.testimonials.map(function (t) {
+      var hasRating = t.rating !== null && t.rating !== undefined && t.rating !== "";
       var r = Number(t.rating);
       return '<figure class="testi-card">' +
+        '<span class="testi-for">Review for ' + esc(t.for) + "</span>" +
         '<span class="testi-mark" aria-hidden="true">“</span>' +
         "<blockquote><p>" + esc(t.quote) + "</p></blockquote>" +
-        '<figcaption><span class="testi-who"><b>Fiverr client</b><span>' + esc(t.date) + "</span></span>" +
-        '<span class="stars" role="img" aria-label="Rated ' + r + ' out of 5"><svg aria-hidden="true"><use href="#i-sparkle"/></svg> ' + r.toFixed(1) + "</span></figcaption>" +
-        "</figure>";
+        '<figcaption><span class="testi-who"><b>' + esc(t.name || "Client review") + "</b>" +
+        (t.date ? "<span>" + esc(t.date) + "</span>" : "") + "</span>" +
+        (hasRating ? '<span class="stars" role="img" aria-label="Rated ' + r + ' out of 5"><svg aria-hidden="true"><use href="#i-sparkle"/></svg> ' + r.toFixed(1) + "</span>" : "") +
+        "</figcaption></figure>";
     }).join("");
     var prev = $("[data-testi-prev]"), next = $("[data-testi-next]");
     var step = function () { var c = testiTrack.querySelector(".testi-card"); return c ? c.getBoundingClientRect().width + 22 : 320; };

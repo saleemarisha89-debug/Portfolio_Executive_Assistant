@@ -608,6 +608,10 @@ button { font: inherit; color: inherit; }
 .founder-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
 .icon-link { display: inline-flex; align-items: center; gap: 8px; color: var(--color-ivory); font-weight: 600; text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color .3s, color .3s; }
 .icon-link:hover { border-color: var(--color-dusty-pink); color: var(--color-dusty-pink); }
+.is-placeholder { display: inline-flex; align-items: center; gap: 8px; color: var(--ivory-muted); cursor: default; }
+.is-placeholder:hover { border-color: transparent; color: var(--ivory-muted); }
+.is-placeholder small { font-size: .78em; font-weight: 500; opacity: .85; }
+.footer-col .is-placeholder .i { color: var(--color-dusty-pink); }
 
 /* Initials placeholder (shared by founder + team portraits) */
 .portrait-placeholder {
@@ -644,6 +648,8 @@ button { font: inherit; color: inherit; }
 }
 .testi-card:hover { transform: translateY(-4px); background: var(--glass-strong); box-shadow: inset 0 0 0 1px var(--line-light-strong), var(--shadow-md); }
 .testi-card:first-child { background: var(--color-ivory); color: var(--color-dark); }
+.testi-for { align-self: flex-start; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--pink-24); color: var(--color-dusty-pink); }
+.testi-card:first-child .testi-for { background: var(--plum-10); color: var(--color-plum); }
 .testi-mark { font-family: var(--font-head); font-weight: 900; font-size: 3.4rem; line-height: .6; color: var(--color-dusty-pink); height: 22px; }
 .testi-card:first-child .testi-mark { color: var(--color-plum); }
 .testi-card blockquote { margin: 0; font-size: 1rem; line-height: 1.65; flex: 1; }
