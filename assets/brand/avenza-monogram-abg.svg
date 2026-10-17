@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 104" role="img" aria-labelledby="t">
+  <title id="t">ABG monogram</title>
+  <g fill="none" stroke="#49304A" stroke-linecap="butt">
+    <path stroke-width="1.8" d="M6 88L34 14M18 64H50"/><path stroke-width="4.6" d="M34 14L62 88"/>
+    <path stroke-width="1.8" d="M1 88H13M55 88H70"/>
+    <path stroke-width="4.6" d="M58 14V50"/>
+    <path stroke-width="1.8" d="M58 14.9H70C81 14.9 81 31 70 31H58M70 31C85 31 85 49.1 70 49.1H58"/>
+    <path stroke-width="1.8" d="M105 60C101 55.5 95 53 89 53C79 53 71 61 71 71C71 81 79 89 89 89C98 89 105 84 105 74H93"/>
+    <path stroke-width="4.6" d="M89 53.6C79.6 53.6 72.6 61 72.6 71C72.6 81 79.6 88.4 89 88.4"/>
+  </g>
+  <path fill="#D9A7B8" d="M105 8C105.9 14.6 107.4 16.1 114 17C107.4 17.9 105.9 19.4 105 26C104.1 19.4 102.6 17.9 96 17C102.6 16.1 104.1 14.6 105 8Z"/>
+</svg>
