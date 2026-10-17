@@ -1,0 +1,8 @@
+# Avenza Business Growth — send every visitor to https://avenzabusinessgrowth.com
+# (covers http://, and the www. address, whatever the cPanel toggle says)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://avenzabusinessgrowth.com%{REQUEST_URI} [L,R=301]
+</IfModule>
